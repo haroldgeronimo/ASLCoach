@@ -1,0 +1,654 @@
+fileFormatVersion: 2
+guid: 2992b4534a6c67a4a9b36402624e2ecd
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: 9399366-vector-illustration-of-sign-language-hands-and-alphabet-_0
+    21300002: 9399366-vector-illustration-of-sign-language-hands-and-alphabet-_1
+    21300004: 9399366-vector-illustration-of-sign-language-hands-and-alphabet-_2
+    21300006: 9399366-vector-illustration-of-sign-language-hands-and-alphabet-_3
+    21300008: 9399366-vector-illustration-of-sign-language-hands-and-alphabet-_4
+    21300010: 9399366-vector-illustration-of-sign-language-hands-and-alphabet-_5
+    21300012: 9399366-vector-illustration-of-sign-language-hands-and-alphabet-_6
+    21300014: 9399366-vector-illustration-of-sign-language-hands-and-alphabet-_7
+    21300016: 9399366-vector-illustration-of-sign-language-hands-and-alphabet-_8
+    21300018: 9399366-vector-illustration-of-sign-language-hands-and-alphabet-_9
+    21300020: 9399366-vector-illustration-of-sign-language-hands-and-alphabet-_10
+    21300022: 9399366-vector-illustration-of-sign-language-hands-and-alphabet-_11
+    21300024: 9399366-vector-illustration-of-sign-language-hands-and-alphabet-_13
+    21300026: 9399366-vector-illustration-of-sign-language-hands-and-alphabet-_14
+    21300028: 9399366-vector-illustration-of-sign-language-hands-and-alphabet-_15
+    21300030: 9399366-vector-illustration-of-sign-language-hands-and-alphabet-_16
+    21300032: 9399366-vector-illustration-of-sign-language-hands-and-alphabet-_18
+    21300034: 9399366-vector-illustration-of-sign-language-hands-and-alphabet-_19
+    21300036: 9399366-vector-illustration-of-sign-language-hands-and-alphabet-_20
+    21300038: 9399366-vector-illustration-of-sign-language-hands-and-alphabet-_21
+    21300040: 9399366-vector-illustration-of-sign-language-hands-and-alphabet-_22
+    21300042: 9399366-vector-illustration-of-sign-language-hands-and-alphabet-_23
+    21300044: 9399366-vector-illustration-of-sign-language-hands-and-alphabet-_24
+    21300046: 9399366-vector-illustration-of-sign-language-hands-and-alphabet-_25
+    21300048: 9399366-vector-illustration-of-sign-language-hands-and-alphabet-_26
+    21300050: 9399366-vector-illustration-of-sign-language-hands-and-alphabet-_27
+  externalObjects: {}
+  serializedVersion: 6
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: 9399366-vector-illustration-of-sign-language-hands-and-alphabet-_0
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 1038
+        width: 171
+        height: 192
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cdc0c12067ef0f447b5a10301161124e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 9399366-vector-illustration-of-sign-language-hands-and-alphabet-_1
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 1031
+        width: 186
+        height: 238
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7a625651787a62458f8816ce3b959fe
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 9399366-vector-illustration-of-sign-language-hands-and-alphabet-_2
+      rect:
+        serializedVersion: 2
+        x: 370
+        y: 1038
+        width: 186
+        height: 202
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9aeac015b6458c439fe82c7d604487d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 9399366-vector-illustration-of-sign-language-hands-and-alphabet-_3
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 1029
+        width: 186
+        height: 232
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 061f6f534262652499d67ab9177ddd56
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 9399366-vector-illustration-of-sign-language-hands-and-alphabet-_4
+      rect:
+        serializedVersion: 2
+        x: 727
+        y: 1036
+        width: 186
+        height: 200
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f033c26c6e10264599c08a50f5d9fea
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 9399366-vector-illustration-of-sign-language-hands-and-alphabet-_5
+      rect:
+        serializedVersion: 2
+        x: 915
+        y: 1030
+        width: 150
+        height: 229
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6fb5f76cbabcfc4094e8398d6d24f3f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 9399366-vector-illustration-of-sign-language-hands-and-alphabet-_6
+      rect:
+        serializedVersion: 2
+        x: 1059
+        y: 1042
+        width: 236
+        height: 178
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12652cadaa01b7d469e3da7216f2c5ec
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 9399366-vector-illustration-of-sign-language-hands-and-alphabet-_7
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 705
+        width: 262
+        height: 179
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 464f2d3b72285ec4e8449bb9f219f667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 9399366-vector-illustration-of-sign-language-hands-and-alphabet-_8
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 708
+        width: 166
+        height: 214
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 635d5e5f479fb0a4c96a32c0bc5f45cb
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 9399366-vector-illustration-of-sign-language-hands-and-alphabet-_9
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 697
+        width: 196
+        height: 207
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13e942e9eb4371f44a0e595a632bf8cb
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 9399366-vector-illustration-of-sign-language-hands-and-alphabet-_10
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 694
+        width: 151
+        height: 247
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7cdcb76d8b14324e91dcd90f7873fec
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 9399366-vector-illustration-of-sign-language-hands-and-alphabet-_11
+      rect:
+        serializedVersion: 2
+        x: 884
+        y: 705
+        width: 186
+        height: 225
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce60f0aa790f3de459a6d8ecbf8cb8d1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 9399366-vector-illustration-of-sign-language-hands-and-alphabet-_13
+      rect:
+        serializedVersion: 2
+        x: 1110
+        y: 690
+        width: 186
+        height: 170
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4514383669bf6be4ca1369e5e93ee468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 9399366-vector-illustration-of-sign-language-hands-and-alphabet-_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 409
+        width: 186
+        height: 185
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 736b1afa079e7ab4cbde8cc0a845f34f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 9399366-vector-illustration-of-sign-language-hands-and-alphabet-_15
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 409
+        width: 186
+        height: 223
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea9fb6ecdcd0c234ea4ef5ed4fbacd55
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 9399366-vector-illustration-of-sign-language-hands-and-alphabet-_16
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 400
+        width: 303
+        height: 223
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62429f9229b30524392b05194a3ce82a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 9399366-vector-illustration-of-sign-language-hands-and-alphabet-_18
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 409
+        width: 212
+        height: 222
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b1bb90820aa41349a0551d15782fbfd
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 9399366-vector-illustration-of-sign-language-hands-and-alphabet-_19
+      rect:
+        serializedVersion: 2
+        x: 901
+        y: 393
+        width: 161
+        height: 245
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b735b971886f9049b45b4ccec604d68
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 9399366-vector-illustration-of-sign-language-hands-and-alphabet-_20
+      rect:
+        serializedVersion: 2
+        x: 1110
+        y: 409
+        width: 165
+        height: 200
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 290e27dda3d26ac419ecb789b9f52ed4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 9399366-vector-illustration-of-sign-language-hands-and-alphabet-_21
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 82
+        width: 186
+        height: 190
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfa2106de4493914392d478fa5ef7f3c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 9399366-vector-illustration-of-sign-language-hands-and-alphabet-_22
+      rect:
+        serializedVersion: 2
+        x: 187
+        y: 77
+        width: 186
+        height: 238
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f8563890fd695f449bc41fac70f904b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 9399366-vector-illustration-of-sign-language-hands-and-alphabet-_23
+      rect:
+        serializedVersion: 2
+        x: 370
+        y: 77
+        width: 170
+        height: 248
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e993bdfe2751ba944ab8b834a5e01704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 9399366-vector-illustration-of-sign-language-hands-and-alphabet-_24
+      rect:
+        serializedVersion: 2
+        x: 538
+        y: 84
+        width: 174
+        height: 241
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb0b015dc406378458c949ddeb21e5f5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 9399366-vector-illustration-of-sign-language-hands-and-alphabet-_25
+      rect:
+        serializedVersion: 2
+        x: 707
+        y: 84
+        width: 161
+        height: 231
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26b65afafa62bd941a2d294593fa3b54
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 9399366-vector-illustration-of-sign-language-hands-and-alphabet-_26
+      rect:
+        serializedVersion: 2
+        x: 872
+        y: 77
+        width: 225
+        height: 232
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63f29fc247850ce4d9998284354db04d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 9399366-vector-illustration-of-sign-language-hands-and-alphabet-_27
+      rect:
+        serializedVersion: 2
+        x: 1110
+        y: 73
+        width: 186
+        height: 255
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8614037236ccd3a45a1f6bdea7b21664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: c8bef81fa87f4794281880fae5ec7f8a
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
