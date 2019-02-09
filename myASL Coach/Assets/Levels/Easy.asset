@@ -12,14 +12,19 @@ MonoBehaviour:
   m_Name: Easy
   m_EditorClassIdentifier: 
   levels:
-  - {fileID: 11400000, guid: 57a58af2ac5651a4da6cfd1de4bd073a, type: 2}
-  - {fileID: 11400000, guid: 57a58af2ac5651a4da6cfd1de4bd073a, type: 2}
-  - {fileID: 11400000, guid: 57a58af2ac5651a4da6cfd1de4bd073a, type: 2}
-  - {fileID: 11400000, guid: 57a58af2ac5651a4da6cfd1de4bd073a, type: 2}
-  - {fileID: 11400000, guid: 57a58af2ac5651a4da6cfd1de4bd073a, type: 2}
-  - {fileID: 11400000, guid: 57a58af2ac5651a4da6cfd1de4bd073a, type: 2}
-  - {fileID: 11400000, guid: 57a58af2ac5651a4da6cfd1de4bd073a, type: 2}
-  - {fileID: 11400000, guid: 57a58af2ac5651a4da6cfd1de4bd073a, type: 2}
-  - {fileID: 11400000, guid: 57a58af2ac5651a4da6cfd1de4bd073a, type: 2}
-  - {fileID: 11400000, guid: 57a58af2ac5651a4da6cfd1de4bd073a, type: 2}
+  - {fileID: 11400000, guid: 754be84c5c8c7c343932973427f20285, type: 2}
+  - {fileID: 11400000, guid: 53dd1d3e5d3596a4c84853fd8cf8a695, type: 2}
+  - {fileID: 11400000, guid: 1db190702ed57db4b9c9c95bdce0cbf7, type: 2}
+  - {fileID: 11400000, guid: 17ecdb45e8dc9ac439cc5127d194eed6, type: 2}
+  - {fileID: 11400000, guid: 2c505ca17f7cfa242bb4f319df8630da, type: 2}
+  - {fileID: 11400000, guid: 677eb7ffc469bd6428585fb13d29c4ee, type: 2}
+  - {fileID: 11400000, guid: ca76cf69b9f3bb24c966bcf54edd705e, type: 2}
+  - {fileID: 11400000, guid: 70882a37506894f42b8462dbdcb4bad7, type: 2}
+  - {fileID: 11400000, guid: 853a07b0282be684abadfd33cf962778, type: 2}
+  - {fileID: 11400000, guid: 69ee58974d7d3cf448b9316a26ee37a7, type: 2}
+  - {fileID: 11400000, guid: aa53b0a2c8f214e448030a16b76be2ce, type: 2}
+  - {fileID: 11400000, guid: c6f32ceb3eda132478971f089766ff52, type: 2}
+  - {fileID: 11400000, guid: 24e8e73b9b1550f4c9d9ecfd31cc46fa, type: 2}
+  - {fileID: 11400000, guid: f78306daac005104ea8a816da2dda1b6, type: 2}
+  - {fileID: 11400000, guid: 92ea4bcdb2c2c2340ba2f3bdf81c7f2c, type: 2}
   difficultyType: 0

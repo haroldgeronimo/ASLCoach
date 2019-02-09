@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Name: D
   m_EditorClassIdentifier: 
   text: D
-  img: {fileID: 21300006, guid: 2992b4534a6c67a4a9b36402624e2ecd, type: 3}
+  img: {fileID: 21300044, guid: 7f1f56a631ff35641acd0653222b3a7c, type: 3}
+  type: 0

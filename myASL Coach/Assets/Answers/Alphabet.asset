@@ -11,6 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c56a2bc2d19fe5044867692c1556f4a8, type: 3}
   m_Name: Alphabet
   m_EditorClassIdentifier: 
+  answerPoolName: Alphabet
   answers:
   - {fileID: 11400000, guid: 604b342ac26991b4c81c5282a543ca64, type: 2}
   - {fileID: 11400000, guid: a211293cf4852a64691648d6fbfa7b12, type: 2}
