@@ -14,17 +14,20 @@ MonoBehaviour:
   tutorialName: Easy
   sheets:
   - topic: Multiple Choice
-    description: In the easy level, you are required to answer mulltiple choice question
+    description: In the easy level, you are required to answer mulltiple choice questions
     img: {fileID: 21300000, guid: 7f1f56a631ff35641acd0653222b3a7c, type: 3}
   - topic: Multiple Choice
-    description: This question comprises of letters from the alphabet
+    description: This question comprises of letters from the alphabet.
     img: {fileID: 0}
   - topic: Multiple Choice
-    description: An image will be shown at the start
+    description: A hand gesture will be shown at the start which you will interpret
     img: {fileID: 0}
   - topic: Answer
-    description: Tap the right answer
+    description: Tap the right interpretation
     img: {fileID: 0}
   - topic: Points
     description: If you answer correctly you'll be receiving points
+    img: {fileID: 0}
+  - topic: Points
+    description: Your points will be added to your total score at the end of the level.
     img: {fileID: 0}

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: Easy Test
   m_EditorClassIdentifier: 
   levelNumber: 4
-  levelName: Easy Test
+  levelName: Test (Easy)
   levelDescription: 
   pointsEach: 5
   questionsPrimitive:

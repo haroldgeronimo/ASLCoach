@@ -1,13 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class QuestionManager : MonoBehaviour {
 	public Level currentLevel;
 	LevelManager levelManager;
 	MultipleChoiceQuestion multipleChoiceQuestion;
 	DetectionQuestion detectionQuestion;
-
+	//UI
+	public TextMeshProUGUI scoreNotif;
+	public Animator scoreAnimator;
 	int currentQuestion = -1;
 	void Awake () {
 		levelManager = GetComponent<LevelManager> ();
@@ -29,10 +32,18 @@ public class QuestionManager : MonoBehaviour {
 		int addedScore = currentLevel.pointsEach * (int) pointsMultiplier;
 		if (addedScore == 0) addedScore = currentLevel.pointsEach;
 		levelManager.AddToScore (addedScore);
+		//UI
+		scoreNotif.color = new Color(0,1,0,1);
+		scoreNotif.text = "+" + addedScore.ToString();
+		scoreAnimator.SetTrigger("Score");
 	}
 	public void PlayerWrong(){
 		int addedScore = -currentLevel.pointsEach;
 		levelManager.AddToScore (addedScore);
+		//UI
+		scoreNotif.color = new Color(1,0,0,1);
+		scoreNotif.text = addedScore.ToString();
+		scoreAnimator.SetTrigger("Score");
 	}
 
 	public void NextQuestion () {

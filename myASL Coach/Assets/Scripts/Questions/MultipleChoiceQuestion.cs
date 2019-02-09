@@ -9,11 +9,14 @@ public class MultipleChoiceQuestion : QuestionControl {
 	public float timeAllotment = 5;
 	public float timeBumper = 1;
 	public float cooldownTime = 0.2f;
+	public int failTreshold = 3;
 
 	//In game variables	
 	float currentTime = 100;
 	float currentCooldown = 0;
 	float timePercent = 1;
+
+	public int wrongCounter = 0;
 
 	//3d
 	public CharacterAnimator animator;
@@ -26,6 +29,12 @@ public class MultipleChoiceQuestion : QuestionControl {
 	public Text answerTxt;
 	public Image imgAnswer;
 
+	public Sprite rightImg;
+	public Sprite wrongImg;
+	public Image resultImg;
+	public Animator resultAnimator;
+
+	public GameObject failPanel;
 	void Update () {
 		if (isPlaying)
 			updateTimes ();
@@ -37,7 +46,7 @@ public class MultipleChoiceQuestion : QuestionControl {
 		base.StartQuestion (q);
 		UIPrepareForQuestion (q);
 
-		animator.animateByAnswer (q.rightAnswer);
+		animator.animateForced (q.rightAnswer);
 		cam.changeCameraPosition (q.rightAnswer);
 		currentTime = timeAllotment + timeBumper;
 	}
@@ -47,17 +56,36 @@ public class MultipleChoiceQuestion : QuestionControl {
 			return;
 
 		if (i == question.rightAnswerIndex) {
-			questionManager.PlayerCorrect (currentTime);
-			animator.animateDefault ();
-			toggleButtonsOff ();
-			EndQuestion ();
+			RightAnswer ();
 		} else {
-			if (questionManager.currentLevel.isCheckpoint)
-				questionManager.PlayerWrong ();
-			currentCooldown = cooldownTime;
-			toggleButtonsOff ();
-			StartCoroutine (coolDown ());
+			WrongAnswer ();
 		}
+	}
+
+	void RightAnswer () {
+		wrongCounter = 0;
+		questionManager.PlayerCorrect (currentTime);
+		animator.animateDefault ();
+		toggleButtonsOff ();
+		EndQuestion ();
+
+		resultImg.sprite = rightImg;
+		resultImg.color = new Color (0, 1, 0, 1);
+		resultAnimator.SetTrigger ("Result");
+	}
+	void WrongAnswer () {
+
+		if (questionManager.currentLevel.isCheckpoint)
+			questionManager.PlayerWrong ();
+		currentCooldown = cooldownTime;
+		toggleButtonsOff ();
+		StartCoroutine (coolDown ());
+
+		resultImg.sprite = wrongImg;
+		resultImg.color = new Color (1, 0, 0, 1);
+		resultAnimator.SetTrigger ("Result");
+		wrongCounter++;
+
 	}
 
 	void updateTimes () {
@@ -66,6 +94,17 @@ public class MultipleChoiceQuestion : QuestionControl {
 		if (currentTime < 0) {
 			if (questionManager.currentLevel.isCheckpoint)
 				questionManager.PlayerWrong ();
+
+			wrongCounter++;
+			if (wrongCounter >= failTreshold) {
+				failPanel.SetActive (true);
+				animator.animateDefault ();
+				for (int i = 0; i < difficultyTransforms.Length; i++) {
+					difficultyTransforms[0].gameObject.SetActive (false);
+				}
+				isPlaying = false;
+				return;
+			}
 			EndQuestion ();
 		}
 

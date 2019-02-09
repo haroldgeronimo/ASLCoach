@@ -31,6 +31,15 @@ public class LearningManager : MonoBehaviour {
 		lvlManager.PauseGame ();
 		PrepareLearn (ansToLrn);
 	}
+
+	public void Refresh(){
+		StartCoroutine(refreshAnimation());
+	}
+	IEnumerator refreshAnimation(){
+		animator.animateForced ("Default");
+		yield return new WaitForSeconds(.2f);
+		Load3DView (answersToLearn[currentLearnIndex]);
+	}
 	void PrepareLearn (Answer[] ansToLrn) {
 
 		lrnPanel.SetActive (true);

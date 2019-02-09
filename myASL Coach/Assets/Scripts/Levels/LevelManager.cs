@@ -11,6 +11,7 @@ public class LevelManager : MonoBehaviour {
 	public QuestionManager questionManager;
 	public SceneControlConnection sceneControl;
 
+	public LevelPool[] difficultyPools;
 
 	public LevelPool levelPool;
 	[HideInInspector]
@@ -24,6 +25,15 @@ public class LevelManager : MonoBehaviour {
 	public TextMeshProUGUI levelNameTxt;
 	public TextMeshProUGUI scoreTxt;
 
+	public Sprite thumbsUp;
+	public Sprite confetti;
+
+	public Image emojiImg;
+
+	public GameObject failedPanel;
+
+	public GameObject constructPanel;
+
 	//in game variables
 	Level currentLevel;
 	int levelIndex;
@@ -35,18 +45,24 @@ public class LevelManager : MonoBehaviour {
 	}
 	void Start () {
 		// TODO gawing dynamic
-		PrepareLevel (0);
+		levelPool = difficultyPools[PlayerManager.singleton.gameManager.currentDifficulty];
+		PrepareLevel (PlayerManager.singleton.gameManager.currentLevel);
 	}
 	// Update is called once per frame
 
 	public void PrepareLevel (int lvlIndex) {
+		if(levelPool == null){
+			constructPanel.SetActive(true);return;
+		}
+		if(levelPool.levels.Length == 0){
+			constructPanel.SetActive(true);return;
 
+		}
 		//TODO check here if level is valid
 		if (lvlIndex > levelPool.levels.Length - 1 || lvlIndex < 0) {
 			Debug.LogError ("Level index out of range!");
 			return;
 		}
-
 
 		levelIndex = lvlIndex;
 
@@ -54,25 +70,29 @@ public class LevelManager : MonoBehaviour {
 
 		currentScore = 0;
 		scoreTxt.text = currentScore.ToString ();
-		
-		levelNoTxt.text = currentLevel.isCheckpoint?"Checkpoint ":"Level " + currentLevel.levelNumber;
+
+		levelNoTxt.text = currentLevel.isCheckpoint? "Checkpoint ": "Level " + currentLevel.levelNumber;
 
 		levelNameTxt.text = levelPool.levels[lvlIndex].levelName;
 
-		levelPanel.SetActive(true);
+		levelPanel.SetActive (true);
 		if (currentLevel.introductoryAnswers.Length > 0) {
-		levelPanel.SetActive(false);
-
+			levelPanel.SetActive (false);
+			
 			lrnManager.StartLearn (currentLevel.introductoryAnswers);
 			return;
 		}
+		
 
 		questionManager.StartQuestions (currentLevel);
 
 	}
 	public void EndLevel () {
 		PlayerManager.singleton.AddPoints (currentScore);
+		if(currentLevel.isCheckpoint)
+		PlayerManager.singleton.gameManager.SaveProgress(levelIndex,levelPool.isLast(levelIndex));
 		levelComplete.SetActive (true);
+		emojiImg.sprite = thumbsUp;
 		levelCompleteDescription.text = "You have passed this level";
 
 	}
@@ -84,18 +104,23 @@ public class LevelManager : MonoBehaviour {
 
 			PrepareLevel (levelIndex);
 
-		} else if ( levelIndex == levelPool.levels.Length) {
+		} else if (levelIndex == levelPool.levels.Length) {
 			Debug.Log ("Congratulation stage");
-
+			emojiImg.sprite = confetti;
 			levelComplete.SetActive (true);
-			levelCompleteDescription.text = "You have finished " + levelPool.difficultyType.ToString() + " stage.";
+			levelCompleteDescription.text = "You have finished " + levelPool.difficultyType.ToString () + " stage.";
 
 		} else {
 			Debug.Log ("End of Level Pool");
-			sceneControl.ChangeScene(0);
+			sceneControl.ChangeScene (0);
 		}
 	}
 
+	public void RestartLevel(){
+		failedPanel.SetActive(false);
+		GetComponent<MultipleChoiceQuestion>().wrongCounter = 0;
+		PrepareLevel (levelIndex);
+	}
 	public void AddToScore (int scoreAdded) {
 		currentScore += scoreAdded;
 		scoreTxt.text = currentScore.ToString ();
@@ -106,7 +131,7 @@ public class LevelManager : MonoBehaviour {
 
 	public void PlayGame () {
 		// TODO
-		levelPanel.SetActive(true);
+		levelPanel.SetActive (true);
 		questionManager.StartQuestions (currentLevel);
 	}
 

@@ -35,4 +35,23 @@ public class GameManager : MonoBehaviour {
 		currentDifficulty = pd.currentDifficulty;
 		currentLevel = pd.currentLevel;
 	}
+
+	public void SaveProgress(int crtLevel, bool isEndOfDifficulty){
+		if(!isEndOfDifficulty){
+			currentLevel = crtLevel;
+		}else{
+			currentLevel = 0;
+			currentDifficulty++;
+		}
+
+		SaveGame ();
+	}
+	public void ResetGame(){
+		currentLevel = 0;
+		currentDifficulty = 0;
+		playerManager.points = 0;
+		SaveGame();
+	}
+
+	
 }

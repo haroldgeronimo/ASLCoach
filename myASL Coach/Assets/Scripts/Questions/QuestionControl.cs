@@ -46,7 +46,7 @@ public class QuestionControl : MonoBehaviour {
 	}
 
 	IEnumerator NextLevelBuffer () {
-		yield return new WaitForSeconds (2);
+		yield return new WaitForSeconds (1);
 		DisableUI ();
 		Debug.Log("NEXT QUESTION");
 		questionManager.NextQuestion ();
