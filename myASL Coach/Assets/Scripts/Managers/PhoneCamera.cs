@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class PhoneCamera : MonoBehaviour {
 
 	private bool camAvailable;
-	private WebCamTexture backCam;
+	[HideInInspector]
+	public WebCamTexture backCam;
 	private Texture defaultBackground;
 	public bool requireFrontCam;
 	public RawImage background;
