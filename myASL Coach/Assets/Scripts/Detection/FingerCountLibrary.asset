@@ -1,0 +1,90 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64cf4e3f21a9c514cb65e1ff665e9710, type: 3}
+  m_Name: FingerCountLibrary
+  m_EditorClassIdentifier: 
+  candidates:
+  - name: 0 Fingers
+    numberOfFingers: 0
+    letters:
+    - letter: 65
+      probability: 1
+    - letter: 69
+      probability: 1
+    - letter: 77
+      probability: 1
+    - letter: 78
+      probability: 1
+    - letter: 79
+      probability: 1
+    - letter: 83
+      probability: 1
+    - letter: 84
+      probability: 1
+    - letter: 66
+      probability: 1
+  - name: 1 Finger
+    numberOfFingers: 1
+    letters:
+    - letter: 68
+      probability: 1
+    - letter: 71
+      probability: 1
+    - letter: 72
+      probability: 1
+    - letter: 73
+      probability: 1
+    - letter: 74
+      probability: 1
+    - letter: 82
+      probability: 1
+    - letter: 90
+      probability: 1
+    - letter: 70
+      probability: 1
+    - letter: 88
+      probability: 1
+    - letter: 67
+      probability: 1
+  - name: 2 Fingers
+    numberOfFingers: 2
+    letters:
+    - letter: 75
+      probability: 1
+    - letter: 76
+      probability: 1
+    - letter: 80
+      probability: 1
+    - letter: 81
+      probability: 1
+    - letter: 86
+      probability: 1
+    - letter: 89
+      probability: 1
+    - letter: 67
+      probability: 1
+  - name: 3 Fingers
+    numberOfFingers: 3
+    letters:
+    - letter: 70
+      probability: 1
+    - letter: 87
+      probability: 1
+  - name: 4 Fingers
+    numberOfFingers: 4
+    letters:
+    - letter: 66
+      probability: 1
+  - name: 5 Fingers
+    numberOfFingers: 5
+    letters:
+    - letter: 65
+      probability: 0
