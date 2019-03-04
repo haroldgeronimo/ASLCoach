@@ -18,6 +18,7 @@ public class UIAnswerList : MonoBehaviour {
     public void ShowAnswerList (AnswerPool ansPool) {
         poolNameTxt.text = ansPool.answerPoolName; 
         GameObject ansUI;
+        ClearUI();
         foreach (Answer ans in ansPool.answers) {
             ansUI = Instantiate (UiAnswerButton, Vector3.zero, Quaternion.identity, answerContainer);
             ansUI.transform.GetChild (0).GetComponent<TextMeshProUGUI> ().text = ans.text;
@@ -31,5 +32,14 @@ public class UIAnswerList : MonoBehaviour {
         UiAnswerPanel.SetActive (true);
         answerImg.sprite = ans.img;
         answerTxt.text = ans.text;
+    }
+
+    public void ClearUI(){
+        Transform t = answerContainer.transform;
+        if(t.childCount > 0)
+        foreach ( Transform i  in t)
+        {
+            Destroy(i.gameObject);
+        }
     }
 }

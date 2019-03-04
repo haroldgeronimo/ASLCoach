@@ -8,7 +8,7 @@ public class DetectionQuestion : QuestionControl {
 	int currentIndex = 0;
 	string alphabet = "abcdefghijklmnopqrstuvwxyz";
 	char detectedCharacter;
-	HandPoseDetector handPoseDetector;
+	HandPoseDetector HPD;
 	Coroutine detectionCoroutine;
 
 	//UI
@@ -17,22 +17,26 @@ public class DetectionQuestion : QuestionControl {
 	public TextMeshProUGUI userCurrentAnswerTxt;
 
 	private void Start () {
-		handPoseDetector = GetComponent<HandPoseDetector> ();
-		if(handPoseDetector == null)
-		Debug.LogError("Hand Pose detector cannot be found");
+		HPD = GetComponent<HandPoseDetector> ();
+		if (HPD == null)
+			Debug.LogError ("Hand Pose detector cannot be found");
 	}
 
 	public override void StartQuestion (Question q) {
 		base.StartQuestion (q);
+
 		currentIndex = 0;
 		if (q.rightAnswer.text.Length == 0) {
 			Debug.LogError ("Answer not set!");
 		}
+
 		rightAnswerTxt.text = q.rightAnswer.text;
 		userCurrentAnswerTxt.text = string.Empty;
 		userAnswerTxt.text = string.Empty;
-		answerChars = q.rightAnswer.text.ToLower ().Replace (" ", "").ToCharArray ();
+		answerChars = q.rightAnswer.text.ToUpper ().Replace (" ", "").ToCharArray ();
 		detectionCoroutine = StartCoroutine (Detect ());
+
+		HPD.HPA.webCamTextureToMatHelper.Init ();
 
 	}
 	public void SkipQuestion () {
@@ -43,6 +47,7 @@ public class DetectionQuestion : QuestionControl {
 
 		if (c == answerChars[currentIndex]) {
 			//right answer
+			userCurrentAnswerTxt.text =  c.ToString ();
 			userAnswerTxt.text = userAnswerTxt.text + c.ToString ();
 			currentIndex++;
 		}
@@ -55,24 +60,25 @@ public class DetectionQuestion : QuestionControl {
 
 	public override void EndQuestion () {
 		base.EndQuestion ();
+
 		if (detectionCoroutine != null)
 			StopCoroutine (detectionCoroutine);
-
+		HPD.HPA.webCamTextureToMatHelper.Dispose ();
 	}
 
 	IEnumerator Detect () {
 
 		while (true) {
-			Debug.Log("Detection init");
-			if(handPoseDetector == null)
-			{
-				
-			yield return new WaitForSeconds (1 / detectionPerSecond);
-			continue;
+			Debug.Log ("Detection init");
+			if (HPD == null) {
+
+				yield return new WaitForSeconds (1 / detectionPerSecond);
+				continue;
 			}
-			char detectedCharacter = handPoseDetector.CharacterDetection ();
-			userCurrentAnswerTxt.text = detectedCharacter.ToString();
-		//	acceptAnswer (detectedCharacter);
+			char detectedCharacter = HPD.CharacterDetection ();
+
+			//userCurrentAnswerTxt.text = detectedCharacter.ToString ();
+			acceptAnswer (detectedCharacter);
 			yield return new WaitForSeconds (1 / detectionPerSecond);
 		}
 		yield return null;

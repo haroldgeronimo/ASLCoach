@@ -8,10 +8,6 @@ using UnityEngine.UI;
 public class HandPoseDetector : MonoBehaviour {
 	public HandPoseAlphabetEstimation HPA;
 	public Text debugText;
-	// Use this for initialization
-	void Start () {
-
-	}
 
 	public char CharacterDetection () {
 		if (HPA != null) {
@@ -23,6 +19,7 @@ public class HandPoseDetector : MonoBehaviour {
 			return '!';
 		}
 	}
+	//WHAT THE FREAK AYOKO NA
 
 	public void DebugWriteLn (string s) {
 		debugText.text += "\n" + s;

@@ -28,10 +28,7 @@ public class QuestionControl : MonoBehaviour {
 	public virtual void EndQuestion () {
 		StopAllCoroutines ();
 		isPlaying = false;
-		StartCoroutine (NextLevelBuffer ());return;
-		DisableUI ();
-		Debug.Log("NEXT QUESTION");
-		questionManager.NextQuestion ();
+		StartCoroutine (NextLevelBuffer ());
 	}
 
 	void EnableUI () {
@@ -46,11 +43,10 @@ public class QuestionControl : MonoBehaviour {
 	}
 
 	IEnumerator NextLevelBuffer () {
-		yield return new WaitForSeconds (1);
+		yield return new WaitForSeconds (2);
 		DisableUI ();
-		Debug.Log("NEXT QUESTION");
+		Debug.Log ("NEXT QUESTION");
 		questionManager.NextQuestion ();
-		
 
 	}
 

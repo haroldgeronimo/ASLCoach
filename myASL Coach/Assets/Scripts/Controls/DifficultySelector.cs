@@ -20,4 +20,8 @@ public class DifficultySelector : MonoBehaviour {
 		else btn.interactable = false;
 	}
 
+	public void SetDifficulty(){
+		GM.currentDifficulty = difficultyIndex;
+	}
+
 }

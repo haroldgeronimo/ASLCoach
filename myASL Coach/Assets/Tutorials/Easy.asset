@@ -21,13 +21,13 @@ MonoBehaviour:
     img: {fileID: 0}
   - topic: Multiple Choice
     description: A hand gesture will be shown at the start which you will interpret
-    img: {fileID: 0}
+    img: {fileID: 21300000, guid: 4b99853f52e1b914399aa8b0b1073208, type: 3}
   - topic: Answer
     description: Tap the right interpretation
-    img: {fileID: 0}
+    img: {fileID: 21300000, guid: 637f05d0837a38e4684cb4d5ef62d149, type: 3}
   - topic: Points
     description: If you answer correctly you'll be receiving points
-    img: {fileID: 0}
+    img: {fileID: 21300000, guid: 04f0c8af2ec3c454f94e3ffd0db1c3c8, type: 3}
   - topic: Points
     description: Your points will be added to your total score at the end of the level.
-    img: {fileID: 0}
+    img: {fileID: 21300000, guid: f9f39040492a54a418ac612da9657efc, type: 3}

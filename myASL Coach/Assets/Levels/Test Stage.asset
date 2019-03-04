@@ -20,6 +20,26 @@ MonoBehaviour:
     choices: []
     rightAnswer: {fileID: 0}
     rightAnswerPool: []
+    questionType: 0
+  - rightAnswerIndex: 0
+    choices: []
+    rightAnswer: {fileID: 0}
+    rightAnswerPool: []
+    questionType: 1
+  - rightAnswerIndex: 0
+    choices: []
+    rightAnswer: {fileID: 0}
+    rightAnswerPool: []
+    questionType: 1
+  - rightAnswerIndex: 0
+    choices: []
+    rightAnswer: {fileID: 0}
+    rightAnswerPool: []
+    questionType: 0
+  - rightAnswerIndex: 0
+    choices: []
+    rightAnswer: {fileID: 0}
+    rightAnswerPool: []
     questionType: 1
   questions:
   - rightAnswerIndex: 0

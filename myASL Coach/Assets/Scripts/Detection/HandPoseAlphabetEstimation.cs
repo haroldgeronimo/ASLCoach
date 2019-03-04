@@ -78,15 +78,11 @@ namespace OpenCVModule {
         /// </summary>
         int numberOfFingers = 0;
 
-        /// <summary>
-        /// The number of fingers text.
-        /// </summary>
-        public TextMeshProUGUI numberOfFingersText;
 
         /// <summary>
         /// The web cam texture to mat helper.
         /// </summary>
-        WebCamTextureToMatHelper webCamTextureToMatHelper;
+        [HideInInspector] public WebCamTextureToMatHelper webCamTextureToMatHelper;
 
         /// <summary>
         /// The stored touch point.
@@ -98,7 +94,7 @@ namespace OpenCVModule {
         /// </summary>
         public RawImage camDisplay;
 
-        public string letter = "1";
+        public string letter = " ";
 
         // Use this for initialization
         void Start () {
@@ -227,18 +223,7 @@ namespace OpenCVModule {
         void OnDisable () {
             webCamTextureToMatHelper.Dispose ();
         }
-
-        /// <summary>
-        /// Raises the back button event.
-        /// </summary>
-        public void OnBackButton () {
-#if UNITY_5_3 || UNITY_5_3_OR_NEWER
-            SceneManager.LoadScene ("OpenCVForUnitySample");
-#else
-            Application.LoadLevel ("OpenCVForUnitySample");
-#endif
-        }
-
+    
         /// <summary>
         /// Raises the play button event.
         /// </summary>
@@ -375,7 +360,7 @@ namespace OpenCVModule {
             //                      Debug.Log ("numberOfFingers " + numberOfFingers);
 
             //                      Core.putText (mRgba, "" + numberOfFingers, new Point (mRgba.cols () / 2, mRgba.rows () / 2), Core.FONT_HERSHEY_PLAIN, 4.0, new Scalar (255, 255, 255, 255), 6, Core.LINE_AA, false);
-            numberOfFingersText.text = letter;
+           // numberOfFingersText.text = letter;
 
             foreach (Point p in listPoDefect) {
                 Imgproc.circle (rgbaMat, p, 6, new Scalar (255, 0, 255, 255), -1);

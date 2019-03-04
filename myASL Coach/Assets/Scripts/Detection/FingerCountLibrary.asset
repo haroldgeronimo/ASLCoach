@@ -54,6 +54,8 @@ MonoBehaviour:
       probability: 1
     - letter: 67
       probability: 1
+    - letter: 85
+      probability: 1
   - name: 2 Fingers
     numberOfFingers: 2
     letters:
@@ -75,6 +77,22 @@ MonoBehaviour:
     numberOfFingers: 3
     letters:
     - letter: 70
+      probability: 1
+    - letter: 87
+      probability: 1
+    - letter: 87
+      probability: 1
+    - letter: 87
+      probability: 1
+    - letter: 87
+      probability: 1
+    - letter: 87
+      probability: 1
+    - letter: 87
+      probability: 1
+    - letter: 87
+      probability: 1
+    - letter: 87
       probability: 1
     - letter: 87
       probability: 1
