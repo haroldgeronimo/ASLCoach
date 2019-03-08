@@ -8,14 +8,25 @@ public class GameManager : MonoBehaviour {
 	public LevelPool[] levelPool;
 	public PlayerManager playerManager;
 	public SaveManager saveManager;
+	public DialogueManager DM;
 
 	private void Awake () {
 		playerManager = GetComponent<PlayerManager> ();
 		saveManager = GetComponent<SaveManager> ();
-
+		DM = GetComponent<DialogueManager> ();
 		LoadGame ();
 	}
-
+	void ShowMessage () {
+		MsgBox.ShowMsgOkay ("Subscribe to PewDiePie!");
+	}
+	void ShowQuestion () {
+		MsgBox.ShowMsgYesNo ("Do you want to show message?",
+			delegate { ShowMessage (); },
+			delegate { ShowQuestion (); });
+	}
+	void Start () {
+		ShowQuestion ();
+	}
 	// Update is called once per frame
 	void Update () {
 
