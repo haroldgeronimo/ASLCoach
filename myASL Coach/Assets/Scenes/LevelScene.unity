@@ -1450,11 +1450,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca150ae91b948ce44b5f570b2a251a7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentDifficulty: 0
+  currentDifficulty: 2
   currentLevel: 0
   levelPool: []
   playerManager: {fileID: 0}
   saveManager: {fileID: 0}
+  DM: {fileID: 0}
 --- !u!114 &333078842
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6201,7 +6202,7 @@ MonoBehaviour:
   questionManager: {fileID: 0}
   sceneControl: {fileID: 432074889}
   difficultyPools:
-  - {fileID: 11400000, guid: 6ade19beaa6b08748b0d1987e0ea3b5c, type: 2}
+  - {fileID: 11400000, guid: 0921d41e446377d4b99fe268f61aca7b, type: 2}
   - {fileID: 11400000, guid: 17704885ebf5d664d8b0de24de77b7c6, type: 2}
   - {fileID: 11400000, guid: 0921d41e446377d4b99fe268f61aca7b, type: 2}
   levelPool: {fileID: 11400000, guid: 0921d41e446377d4b99fe268f61aca7b, type: 2}
@@ -9569,7 +9570,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1630683873
 RectTransform:
   m_ObjectHideFlags: 0

@@ -20,7 +20,7 @@ MonoBehaviour:
     choices: []
     rightAnswer: {fileID: 0}
     rightAnswerPool: []
-    questionType: 0
+    questionType: 1
   - rightAnswerIndex: 0
     choices: []
     rightAnswer: {fileID: 0}
@@ -44,7 +44,31 @@ MonoBehaviour:
   questions:
   - rightAnswerIndex: 0
     choices: []
-    rightAnswer: {fileID: 11400000, guid: ad9e222a58955c645a2424e4ca04beae, type: 2}
+    rightAnswer: {fileID: 11400000, guid: 52aceb0db672a20479532f1ae0ea59d4, type: 2}
+    rightAnswerPool: []
+    questionType: 1
+  - rightAnswerIndex: 0
+    choices: []
+    rightAnswer: {fileID: 11400000, guid: 2728845f448a16849b512e68065d5dd2, type: 2}
+    rightAnswerPool: []
+    questionType: 1
+  - rightAnswerIndex: 0
+    choices: []
+    rightAnswer: {fileID: 11400000, guid: dc30c433ff02e9c47addf3e6f6f0fbb7, type: 2}
+    rightAnswerPool: []
+    questionType: 1
+  - rightAnswerIndex: 3
+    choices:
+    - {fileID: 11400000, guid: 3e497afbb202ba54295b112b8986679b, type: 2}
+    - {fileID: 11400000, guid: a211293cf4852a64691648d6fbfa7b12, type: 2}
+    - {fileID: 11400000, guid: 0acdecc426b4c9c4387bb1a162a72ec3, type: 2}
+    - {fileID: 11400000, guid: d6b525a41317d5a40a49f3d99bdf2876, type: 2}
+    rightAnswer: {fileID: 11400000, guid: d6b525a41317d5a40a49f3d99bdf2876, type: 2}
+    rightAnswerPool: []
+    questionType: 0
+  - rightAnswerIndex: 0
+    choices: []
+    rightAnswer: {fileID: 11400000, guid: 356709e9101a2da499f5e8c8ca86dcd6, type: 2}
     rightAnswerPool: []
     questionType: 1
   answerPool: {fileID: 11400000, guid: 591af96034c7a924db222bc05fd5196b, type: 2}
