@@ -11,13 +11,15 @@ using UnityEngine.SceneManagement;
 #endif
 using OpenCVForUnity;
 
-namespace OpenCVModule {
+namespace OpenCVModule
+{
     /// <summary>
     /// Hand Pose Estimation sample
     /// referring to the https://www.youtube.com/watch?v=KuGpOxOcpds.
     /// </summary>
-    [RequireComponent (typeof (WebCamTextureToMatHelper))]
-    public class HandPoseAlphabetEstimation : MonoBehaviour {
+    [RequireComponent(typeof(WebCamTextureToMatHelper))]
+    public class HandPoseAlphabetEstimation : MonoBehaviour
+    {
         /// <summary>
         /// Finger count library for guessing letter
         /// </summary>
@@ -97,43 +99,45 @@ namespace OpenCVModule {
         public string letter = " ";
 
         // Use this for initialization
-        void Start () {
-            webCamTextureToMatHelper = gameObject.GetComponent<WebCamTextureToMatHelper> ();
-            webCamTextureToMatHelper.Init ();
+        void Start()
+        {
+            webCamTextureToMatHelper = gameObject.GetComponent<WebCamTextureToMatHelper>();
+            webCamTextureToMatHelper.Init();
         }
 
         /// <summary>
         /// Raises the web cam texture to mat helper inited event.
         /// </summary>
-        public void OnWebCamTextureToMatHelperInited () {
-            Debug.Log ("OnWebCamTextureToMatHelperInited");
+        public void OnWebCamTextureToMatHelperInited()
+        {
+            Debug.Log("OnWebCamTextureToMatHelperInited");
 
             //HPD.DebugWriteLn ("OnWebCamTextureToMatHelperInited");
-            Mat webCamTextureMat = webCamTextureToMatHelper.GetMat ();
+            Mat webCamTextureMat = webCamTextureToMatHelper.GetMat();
             // HPD.DebugWriteLn ("webCamTextureToMatHelper.GetMat ()");
 
-            texture = new Texture2D (webCamTextureMat.cols (), webCamTextureMat.rows (), TextureFormat.RGBA32, false);
+            texture = new Texture2D(webCamTextureMat.cols(), webCamTextureMat.rows(), TextureFormat.RGBA32, false);
             // HPD.DebugWriteLn ("new Texture2D");
 
             //gameObject.GetComponent<Renderer> ().material.mainTexture = texture;
             if (camDisplay == null)
-                camDisplay = gameObject.GetComponent<RawImage> ();
+                camDisplay = gameObject.GetComponent<RawImage>();
 
             if (camDisplay == null)
-                Debug.LogError ("Cam display not found! Check if assigned it on inspector or the ccomponent is attached with a raw image");
+                Debug.LogError("Cam display not found! Check if assigned it on inspector or the ccomponent is attached with a raw image");
 
             //HPD.DebugWriteLn ("camDisplay.texture");
             camDisplay.texture = texture;
             //            camDisplay.gameObject.transform.localScale = new Vector3 (webCamTextureMat.cols (), webCamTextureMat.rows (), 1);
 
-            Debug.Log ("Screen.width " + Screen.width + " Screen.height " + Screen.height + " Screen.orientation " + Screen.orientation);
+            Debug.Log("Screen.width " + Screen.width + " Screen.height " + Screen.height + " Screen.orientation " + Screen.orientation);
 
-            float width = webCamTextureMat.width ();
-            float height = webCamTextureMat.height ();
+            float width = webCamTextureMat.width();
+            float height = webCamTextureMat.height();
             //HPD.DebugWriteLn ("GetTexture DImesions");
 
-            float widthScale = (float) Screen.width / width;
-            float heightScale = (float) Screen.height / height;
+            float widthScale = (float)Screen.width / width;
+            float heightScale = (float)Screen.height / height;
 
             //.DebugWriteLn ("Get Scale");
             /*     if (widthScale < heightScale) {
@@ -142,7 +146,7 @@ namespace OpenCVModule {
                     Camera.main.orthographicSize = height / 2;
                 } */
             //HPD.DebugWriteLn ("Detector is going INIT!");
-            detector = new ColorBlobDetector ();
+            detector = new ColorBlobDetector();
             /* if (detector == null) {
                 HPD.DebugWriteLn ("Detector is null INIT!");
                 return;
@@ -150,34 +154,37 @@ namespace OpenCVModule {
                 HPD.DebugWriteLn ("Detector is not null INIT!");
 
             } */
-            spectrumMat = new Mat ();
+            spectrumMat = new Mat();
             //blobColorRgba = new Scalar (255);
-            blobColorHsv = new Scalar (255);
-            SPECTRUM_SIZE = new Size (200, 64);
-            CONTOUR_COLOR = new Scalar (0, 255, 0, 255);
-            CONTOUR_COLOR_WHITE = new Scalar (255, 255, 255, 255);
+            blobColorHsv = new Scalar(255);
+            SPECTRUM_SIZE = new Size(200, 64);
+            CONTOUR_COLOR = new Scalar(0, 255, 0, 255);
+            CONTOUR_COLOR_WHITE = new Scalar(255, 255, 255, 255);
         }
 
         /// <summary>
         /// Raises the web cam texture to mat helper disposed event.
         /// </summary>
-        public void OnWebCamTextureToMatHelperDisposed () {
-            Debug.Log ("OnWebCamTextureToMatHelperDisposed");
+        public void OnWebCamTextureToMatHelperDisposed()
+        {
+            Debug.Log("OnWebCamTextureToMatHelperDisposed");
 
             if (spectrumMat != null)
-                spectrumMat.Dispose ();
+                spectrumMat.Dispose();
         }
 
         /// <summary>
         /// Raises the web cam texture to mat helper error occurred event.
         /// </summary>
         /// <param name="errorCode">Error code.</param>
-        public void OnWebCamTextureToMatHelperErrorOccurred (WebCamTextureToMatHelper.ErrorCode errorCode) {
-            Debug.Log ("OnWebCamTextureToMatHelperErrorOccurred " + errorCode);
+        public void OnWebCamTextureToMatHelperErrorOccurred(WebCamTextureToMatHelper.ErrorCode errorCode)
+        {
+            Debug.Log("OnWebCamTextureToMatHelperErrorOccurred " + errorCode);
         }
 
         // Update is called once per frame
-        void Update () {
+        void Update()
+        {
 #if ((UNITY_ANDROID || UNITY_IOS) && !UNITY_EDITOR)
             //Touch
             int touchCount = Input.touchCount;
@@ -191,105 +198,118 @@ namespace OpenCVModule {
             }
 #else
             //Mouse
-            if (Input.GetMouseButtonUp (0) && !EventSystem.current.IsPointerOverGameObject ()) {
-                storedTouchPoint = new Point (Input.mousePosition.x, Input.mousePosition.y);
+            if (Input.GetMouseButtonUp(0) && !EventSystem.current.IsPointerOverGameObject())
+            {
+                storedTouchPoint = new Point(Input.mousePosition.x, Input.mousePosition.y);
                 //Debug.Log ("mouse X " + Input.mousePosition.x);
                 //Debug.Log ("mouse Y " + Input.mousePosition.y);
             }
 #endif
 
-            if (webCamTextureToMatHelper.IsPlaying () && webCamTextureToMatHelper.DidUpdateThisFrame ()) {
+            if (webCamTextureToMatHelper.IsPlaying() && webCamTextureToMatHelper.DidUpdateThisFrame())
+            {
 
-                Mat rgbaMat = webCamTextureToMatHelper.GetMat ();
+                Mat rgbaMat = webCamTextureToMatHelper.GetMat();
 
-                if (storedTouchPoint != null) {
-                    OnCenterTouch (rgbaMat);
+                if (storedTouchPoint != null)
+                {
+                    OnCenterTouch(rgbaMat);
                     storedTouchPoint = null;
                 }
 
-                handPoseEstimationProcessNew (rgbaMat);
-                //handPoseEstimationProcess (rgbaMat);
+                //handPoseEstimationProcessNew(rgbaMat);
+                handPoseEstimationProcess (rgbaMat);
 
                 //Imgproc.putText (rgbaMat, "Please touch the area of the open hand.", new Point (5, rgbaMat.rows () - 10), Core.FONT_HERSHEY_SIMPLEX, 1.0, new Scalar (255, 255, 255, 255), 2, Imgproc.LINE_AA, false);
 
                 //              Imgproc.putText (rgbaMat, "W:" + rgbaMat.width () + " H:" + rgbaMat.height () + " SO:" + Screen.orientation, new Point (5, rgbaMat.rows () - 10), Core.FONT_HERSHEY_SIMPLEX, 1.0, new Scalar (255, 255, 255, 255), 2, Imgproc.LINE_AA, false);
 
-                Utils.matToTexture2D (rgbaMat, texture, webCamTextureToMatHelper.GetBufferColors ());
+                Utils.matToTexture2D(rgbaMat, texture, webCamTextureToMatHelper.GetBufferColors());
             }
         }
 
         /// <summary>
         /// Raises the disable event.
         /// </summary>
-        void OnDisable () {
-            webCamTextureToMatHelper.Dispose ();
+        void OnDisable()
+        {
+            webCamTextureToMatHelper.Dispose();
         }
 
         /// <summary>
         /// Raises the play button event.
         /// </summary>
-        public void OnPlayButton () {
-            webCamTextureToMatHelper.Play ();
+        public void OnPlayButton()
+        {
+            webCamTextureToMatHelper.Play();
         }
 
         /// <summary>
         /// Raises the pause button event.
         /// </summary>
-        public void OnPauseButton () {
-            webCamTextureToMatHelper.Pause ();
+        public void OnPauseButton()
+        {
+            webCamTextureToMatHelper.Pause();
         }
 
         /// <summary>
         /// Raises the stop button event.
         /// </summary>
-        public void OnStopButton () {
-            webCamTextureToMatHelper.Stop ();
+        public void OnStopButton()
+        {
+            webCamTextureToMatHelper.Stop();
         }
 
         /// <summary>
         /// Raises the change camera button event.
         /// </summary>
-        public void OnChangeCameraButton () {
-            webCamTextureToMatHelper.Init (null, webCamTextureToMatHelper.requestWidth, webCamTextureToMatHelper.requestHeight, !webCamTextureToMatHelper.requestIsFrontFacing);
+        public void OnChangeCameraButton()
+        {
+            webCamTextureToMatHelper.Init(null, webCamTextureToMatHelper.requestWidth, webCamTextureToMatHelper.requestHeight, !webCamTextureToMatHelper.requestIsFrontFacing);
         }
 
         /// <summary>
         /// Hands the pose estimation process.
         /// </summary>
-        public void handPoseEstimationProcess (Mat rgbaMat) {
+        public void handPoseEstimationProcess(Mat rgbaMat)
+        {
+
             //Imgproc.blur(mRgba, mRgba, new Size(5,5));
-            Imgproc.GaussianBlur (rgbaMat, rgbaMat, new OpenCVForUnity.Size (3, 3), 1, 1);
+            Imgproc.GaussianBlur(rgbaMat, rgbaMat, new OpenCVForUnity.Size(3, 3), 1, 1);
             //Imgproc.medianBlur(mRgba, mRgba, 3);
 
             if (!isColorSelected)
                 return;
 
-            List<MatOfPoint> contours = detector.getContours ();
-            detector.process (rgbaMat);
+            List<MatOfPoint> contours = detector.getContours();
+            detector.process(rgbaMat);
 
             //                      Debug.Log ("Contours count: " + contours.Count);
 
-            if (contours.Count <= 0) {
+            if (contours.Count <= 0)
+            {
                 return;
             }
 
-            RotatedRect rect = Imgproc.minAreaRect (new MatOfPoint2f (contours[0].toArray ()));
+            RotatedRect rect = Imgproc.minAreaRect(new MatOfPoint2f(contours[0].toArray()));
 
             double boundWidth = rect.size.width;
             double boundHeight = rect.size.height;
             int boundPos = 0;
 
-            for (int i = 1; i < contours.Count; i++) {
-                rect = Imgproc.minAreaRect (new MatOfPoint2f (contours[i].toArray ()));
-                if (rect.size.width * rect.size.height > boundWidth * boundHeight) {
+            for (int i = 1; i < contours.Count; i++)
+            {
+                rect = Imgproc.minAreaRect(new MatOfPoint2f(contours[i].toArray()));
+                if (rect.size.width * rect.size.height > boundWidth * boundHeight)
+                {
                     boundWidth = rect.size.width;
                     boundHeight = rect.size.height;
                     boundPos = i;
                 }
             }
 
-            OpenCVForUnity.Rect boundRect = Imgproc.boundingRect (new MatOfPoint (contours[boundPos].toArray ()));
-            Imgproc.rectangle (rgbaMat, boundRect.tl (), boundRect.br (), CONTOUR_COLOR_WHITE, 2, 8, 0);
+            OpenCVForUnity.Rect boundRect = Imgproc.boundingRect(new MatOfPoint(contours[boundPos].toArray()));
+            Imgproc.rectangle(rgbaMat, boundRect.tl(), boundRect.br(), CONTOUR_COLOR_WHITE, 2, 8, 0);
 
             //                      Debug.Log (
             //                      " Row start [" + 
@@ -298,58 +318,61 @@ namespace OpenCVModule {
             //                              (int)boundRect.tl ().x + "] Col end [" +
             //                              (int)boundRect.br ().x + "]");
 
-            double a = boundRect.br ().y - boundRect.tl ().y;
+            double a = boundRect.br().y - boundRect.tl().y;
             a = a * 0.7;
-            a = boundRect.tl ().y + a;
+            a = boundRect.tl().y + a;
 
             //                      Debug.Log (
             //                      " A [" + a + "] br y - tl y = [" + (boundRect.br ().y - boundRect.tl ().y) + "]");
 
             //Core.rectangle( mRgba, boundRect.tl(), boundRect.br(), CONTOUR_COLOR, 2, 8, 0 );
-            Imgproc.rectangle (rgbaMat, boundRect.tl (), new Point (boundRect.br ().x, a), CONTOUR_COLOR, 2, 8, 0);
+            Imgproc.rectangle(rgbaMat, boundRect.tl(), new Point(boundRect.br().x, a), CONTOUR_COLOR, 2, 8, 0);
 
-            MatOfPoint2f pointMat = new MatOfPoint2f ();
-            Imgproc.approxPolyDP (new MatOfPoint2f (contours[boundPos].toArray ()), pointMat, 3, true);
-            contours[boundPos] = new MatOfPoint (pointMat.toArray ());
+            MatOfPoint2f pointMat = new MatOfPoint2f();
+            Imgproc.approxPolyDP(new MatOfPoint2f(contours[boundPos].toArray()), pointMat, 3, true);
+            contours[boundPos] = new MatOfPoint(pointMat.toArray());
 
-            MatOfInt hull = new MatOfInt ();
-            MatOfInt4 convexDefect = new MatOfInt4 ();
-            Imgproc.convexHull (new MatOfPoint (contours[boundPos].toArray ()), hull);
+            MatOfInt hull = new MatOfInt();
+            MatOfInt4 convexDefect = new MatOfInt4();
+            Imgproc.convexHull(new MatOfPoint(contours[boundPos].toArray()), hull);
 
-            if (hull.toArray ().Length < 3)
+            if (hull.toArray().Length < 3)
                 return;
 
-            Imgproc.convexityDefects (new MatOfPoint (contours[boundPos].toArray ()), hull, convexDefect);
+            Imgproc.convexityDefects(new MatOfPoint(contours[boundPos].toArray()), hull, convexDefect);
 
-            List<MatOfPoint> hullPoints = new List<MatOfPoint> ();
-            List<Point> listPo = new List<Point> ();
-            for (int j = 0; j < hull.toList ().Count; j++) {
-                listPo.Add (contours[boundPos].toList () [hull.toList () [j]]);
+            List<MatOfPoint> hullPoints = new List<MatOfPoint>();
+            List<Point> listPo = new List<Point>();
+            for (int j = 0; j < hull.toList().Count; j++)
+            {
+                listPo.Add(contours[boundPos].toList()[hull.toList()[j]]);
             }
 
-            MatOfPoint e = new MatOfPoint ();
-            e.fromList (listPo);
-            hullPoints.Add (e);
+            MatOfPoint e = new MatOfPoint();
+            e.fromList(listPo);
+            hullPoints.Add(e);
 
-            List<MatOfPoint> defectPoints = new List<MatOfPoint> ();
-            List<Point> listPoDefect = new List<Point> ();
-            for (int j = 0; j < convexDefect.toList ().Count; j = j + 4) {
-                Point farPoint = contours[boundPos].toList () [convexDefect.toList () [j + 2]];
-                int depth = convexDefect.toList () [j + 3];
-                if (depth > threasholdSlider.value && farPoint.y < a) {
-                    listPoDefect.Add (contours[boundPos].toList () [convexDefect.toList () [j + 2]]);
+            List<MatOfPoint> defectPoints = new List<MatOfPoint>();
+            List<Point> listPoDefect = new List<Point>();
+            for (int j = 0; j < convexDefect.toList().Count; j = j + 4)
+            {
+                Point farPoint = contours[boundPos].toList()[convexDefect.toList()[j + 2]];
+                int depth = convexDefect.toList()[j + 3];
+                if (depth > threasholdSlider.value && farPoint.y < a)
+                {
+                    listPoDefect.Add(contours[boundPos].toList()[convexDefect.toList()[j + 2]]);
                 }
                 //                              Debug.Log ("defects [" + j + "] " + convexDefect.toList () [j + 3]);
             }
 
-            MatOfPoint e2 = new MatOfPoint ();
-            e2.fromList (listPo);
-            defectPoints.Add (e2);
+            MatOfPoint e2 = new MatOfPoint();
+            e2.fromList(listPo);
+            defectPoints.Add(e2);
 
             //                      Debug.Log ("hull: " + hull.toList ());
             //                      Debug.Log ("defects: " + convexDefect.toList ());
 
-            Imgproc.drawContours (rgbaMat, hullPoints, -1, CONTOUR_COLOR, 3);
+            Imgproc.drawContours(rgbaMat, hullPoints, -1, CONTOUR_COLOR, 3);
 
             //                      int defectsTotal = (int)convexDefect.total();
             //                      Debug.Log ("Defect total " + defectsTotal);
@@ -357,14 +380,15 @@ namespace OpenCVModule {
             this.numberOfFingers = listPoDefect.Count;
             if (this.numberOfFingers > 5)
                 this.numberOfFingers = 5;
-            letter = FCL.GuessLetter (numberOfFingers).ToString ();
+            letter = FCL.GuessLetter(numberOfFingers).ToString();
             //                      Debug.Log ("numberOfFingers " + numberOfFingers);
 
             //                      Core.putText (mRgba, "" + numberOfFingers, new Point (mRgba.cols () / 2, mRgba.rows () / 2), Core.FONT_HERSHEY_PLAIN, 4.0, new Scalar (255, 255, 255, 255), 6, Core.LINE_AA, false);
             // numberOfFingersText.text = letter;
 
-            foreach (Point p in listPoDefect) {
-                Imgproc.circle (rgbaMat, p, 6, new Scalar (255, 0, 255, 255), -1);
+            foreach (Point p in listPoDefect)
+            {
+                Imgproc.circle(rgbaMat, p, 6, new Scalar(255, 0, 255, 255), -1);
             }
         }
         #region  commented
@@ -432,19 +456,20 @@ namespace OpenCVModule {
                     return new Scalar (pointMatRgba.get (0, 0));
                 } */
         #endregion
-        public void OnCenterTouch (Mat rgbaMat) {
-            int cols = rgbaMat.cols ();
-            int rows = rgbaMat.rows ();
+        public void OnCenterTouch(Mat rgbaMat)
+        {
+            int cols = rgbaMat.cols();
+            int rows = rgbaMat.rows();
 
-            int x = (int) cols / 2;
-            int y = (int) rows / 2;
+            int x = (int)cols / 2;
+            int y = (int)rows / 2;
 
             //                      Debug.Log ("Touch image coordinates: (" + x + ", " + y + ")");
 
             if ((x < 0) || (y < 0) || (x > cols) || (y > rows))
                 return;
 
-            OpenCVForUnity.Rect touchedRect = new OpenCVForUnity.Rect ();
+            OpenCVForUnity.Rect touchedRect = new OpenCVForUnity.Rect();
 
             touchedRect.x = (x > 5) ? x - 5 : 0;
             touchedRect.y = (y > 5) ? y - 5 : 0;
@@ -452,13 +477,13 @@ namespace OpenCVModule {
             touchedRect.width = (x + 5 < cols) ? x + 5 - touchedRect.x : cols - touchedRect.x;
             touchedRect.height = (y + 5 < rows) ? y + 5 - touchedRect.y : rows - touchedRect.y;
 
-            Mat touchedRegionRgba = rgbaMat.submat (touchedRect);
+            Mat touchedRegionRgba = rgbaMat.submat(touchedRect);
 
-            Mat touchedRegionHsv = new Mat ();
-            Imgproc.cvtColor (touchedRegionRgba, touchedRegionHsv, Imgproc.COLOR_RGB2HSV_FULL);
+            Mat touchedRegionHsv = new Mat();
+            Imgproc.cvtColor(touchedRegionRgba, touchedRegionHsv, Imgproc.COLOR_RGB2HSV_FULL);
             //return;
             // Calculate average color of touched region
-            blobColorHsv = Core.sumElems (touchedRegionHsv);
+            blobColorHsv = Core.sumElems(touchedRegionHsv);
             int pointCount = touchedRect.width * touchedRect.height;
             for (int i = 0; i < blobColorHsv.val.Length; i++)
                 blobColorHsv.val[i] /= pointCount;
@@ -476,20 +501,21 @@ namespace OpenCVModule {
                 return;
             } */
 
-            if (detector == null) {
-                HPD.DebugWriteLn ("Detector is null!");
+            if (detector == null)
+            {
+                HPD.DebugWriteLn("Detector is null!");
                 return;
             }
-            detector.setHsvColor (blobColorHsv);
+            detector.setHsvColor(blobColorHsv);
 
             //    return;
 
-            Imgproc.resize (detector.getSpectrum (), spectrumMat, SPECTRUM_SIZE);
+            Imgproc.resize(detector.getSpectrum(), spectrumMat, SPECTRUM_SIZE);
 
             isColorSelected = true;
 
-            touchedRegionRgba.release ();
-            touchedRegionHsv.release ();
+            touchedRegionRgba.release();
+            touchedRegionHsv.release();
         }
 
         /// <summary>
@@ -499,153 +525,178 @@ namespace OpenCVModule {
         /// <param name="screenPoint">Screen point.</param>
         /// <param name="quad">Quad.</param>
         /// <param name="cam">Cam.</param>
-        static Point convertScreenPoint (Point screenPoint, GameObject quad, Camera cam) {
+        static Point convertScreenPoint(Point screenPoint, GameObject quad, Camera cam)
+        {
             Vector2 tl;
             Vector2 tr;
             Vector2 br;
             Vector2 bl;
 
-            tl = cam.WorldToScreenPoint (new Vector3 (quad.transform.localPosition.x - quad.transform.localScale.x / 2, quad.transform.localPosition.y + quad.transform.localScale.y / 2, quad.transform.localPosition.z));
-            tr = cam.WorldToScreenPoint (new Vector3 (quad.transform.localPosition.x + quad.transform.localScale.x / 2, quad.transform.localPosition.y + quad.transform.localScale.y / 2, quad.transform.localPosition.z));
-            br = cam.WorldToScreenPoint (new Vector3 (quad.transform.localPosition.x + quad.transform.localScale.x / 2, quad.transform.localPosition.y - quad.transform.localScale.y / 2, quad.transform.localPosition.z));
-            bl = cam.WorldToScreenPoint (new Vector3 (quad.transform.localPosition.x - quad.transform.localScale.x / 2, quad.transform.localPosition.y - quad.transform.localScale.y / 2, quad.transform.localPosition.z));
+            tl = cam.WorldToScreenPoint(new Vector3(quad.transform.localPosition.x - quad.transform.localScale.x / 2, quad.transform.localPosition.y + quad.transform.localScale.y / 2, quad.transform.localPosition.z));
+            tr = cam.WorldToScreenPoint(new Vector3(quad.transform.localPosition.x + quad.transform.localScale.x / 2, quad.transform.localPosition.y + quad.transform.localScale.y / 2, quad.transform.localPosition.z));
+            br = cam.WorldToScreenPoint(new Vector3(quad.transform.localPosition.x + quad.transform.localScale.x / 2, quad.transform.localPosition.y - quad.transform.localScale.y / 2, quad.transform.localPosition.z));
+            bl = cam.WorldToScreenPoint(new Vector3(quad.transform.localPosition.x - quad.transform.localScale.x / 2, quad.transform.localPosition.y - quad.transform.localScale.y / 2, quad.transform.localPosition.z));
 
-            Mat srcRectMat = new Mat (4, 1, CvType.CV_32FC2);
-            Mat dstRectMat = new Mat (4, 1, CvType.CV_32FC2);
+            Mat srcRectMat = new Mat(4, 1, CvType.CV_32FC2);
+            Mat dstRectMat = new Mat(4, 1, CvType.CV_32FC2);
 
-            srcRectMat.put (0, 0, tl.x, tl.y, tr.x, tr.y, br.x, br.y, bl.x, bl.y);
-            dstRectMat.put (0, 0, 0.0, 0.0, quad.transform.localScale.x, 0.0, quad.transform.localScale.x, quad.transform.localScale.y, 0.0, quad.transform.localScale.y);
+            srcRectMat.put(0, 0, tl.x, tl.y, tr.x, tr.y, br.x, br.y, bl.x, bl.y);
+            dstRectMat.put(0, 0, 0.0, 0.0, quad.transform.localScale.x, 0.0, quad.transform.localScale.x, quad.transform.localScale.y, 0.0, quad.transform.localScale.y);
 
-            Mat perspectiveTransform = Imgproc.getPerspectiveTransform (srcRectMat, dstRectMat);
+            Mat perspectiveTransform = Imgproc.getPerspectiveTransform(srcRectMat, dstRectMat);
 
             //                      Debug.Log ("srcRectMat " + srcRectMat.dump ());
             //                      Debug.Log ("dstRectMat " + dstRectMat.dump ());
             //                      Debug.Log ("perspectiveTransform " + perspectiveTransform.dump ());
 
-            MatOfPoint2f srcPointMat = new MatOfPoint2f (screenPoint);
-            MatOfPoint2f dstPointMat = new MatOfPoint2f ();
+            MatOfPoint2f srcPointMat = new MatOfPoint2f(screenPoint);
+            MatOfPoint2f dstPointMat = new MatOfPoint2f();
 
-            Core.perspectiveTransform (srcPointMat, dstPointMat, perspectiveTransform);
+            Core.perspectiveTransform(srcPointMat, dstPointMat, perspectiveTransform);
 
             //                      Debug.Log ("srcPointMat " + srcPointMat.dump ());
             //                      Debug.Log ("dstPointMat " + dstPointMat.dump ());
 
-            return dstPointMat.toArray () [0];
+            return dstPointMat.toArray()[0];
         }
         double lower_thresh1 = 129;
         double upper_thresh1 = 255;
-        public void handPoseEstimationProcessNew (Mat rgbaMat) {
-            Mat gray = new Mat ();
-            Imgproc.cvtColor (rgbaMat, gray, Imgproc.COLOR_RGB2GRAY);
+        public void handPoseEstimationProcessNew(Mat rgbaMat)
+        {
+            HPD.DebugClear();
 
-            Mat hsv = new Mat ();
-            Imgproc.cvtColor (rgbaMat, hsv, Imgproc.COLOR_RGB2HSV);
+            Mat gray = new Mat();
+            Imgproc.cvtColor(rgbaMat, gray, Imgproc.COLOR_RGB2GRAY);
+            HPD.DebugWriteLn("gray");
+
+            Mat hsv = new Mat();
+            Imgproc.cvtColor(rgbaMat, hsv, Imgproc.COLOR_RGB2HSV);
+            HPD.DebugWriteLn("hsv");
 
             /*     int[] lower_red = new int[]{0,150,50};
             int[] upper_red = new int[]{195,255,255};
  */
 
-            Mat blurred = new Mat ();
-            Imgproc.GaussianBlur (gray, blurred, new OpenCVForUnity.Size (35, 35), 1, 1);
-            detector.process (rgbaMat);
-            Mat tresh1 = new Mat ();
-            Imgproc.threshold (blurred, tresh1, lower_thresh1, upper_thresh1, Imgproc.THRESH_BINARY_INV + Imgproc.THRESH_OTSU);
+            Mat blurred = new Mat();
+            Imgproc.GaussianBlur(gray, blurred, new OpenCVForUnity.Size(35, 35), 1, 1);
+            detector.process(rgbaMat);
+            HPD.DebugWriteLn("blurred");
 
-            Mat tresh_dofh = new Mat ();
-            Imgproc.threshold (rgbaMat, tresh_dofh, lower_thresh1, upper_thresh1, Imgproc.THRESH_BINARY_INV + Imgproc.THRESH_OTSU);
+            Mat tresh1 = new Mat();
+            Imgproc.threshold(blurred, tresh1, lower_thresh1, upper_thresh1, Imgproc.THRESH_BINARY_INV + Imgproc.THRESH_OTSU);
+            HPD.DebugWriteLn("tresh1");
+
+            Mat tresh_dofh = new Mat();
+            Imgproc.threshold(rgbaMat, tresh_dofh, lower_thresh1, upper_thresh1, Imgproc.THRESH_BINARY_INV + Imgproc.THRESH_OTSU);
+            HPD.DebugWriteLn("tresh_dofh");
             /* if (!isColorSelected)
                 return; */
 
-            List<MatOfPoint> contours = new List<MatOfPoint> ();
-            Mat srcHierarchy = new Mat ();
-            Imgproc.findContours (tresh1, contours, srcHierarchy, Imgproc.RETR_TREE, Imgproc.CHAIN_APPROX_NONE);
-            List<MatOfPoint> xyz, hierarchy = new List<MatOfPoint> (contours);
+            List<MatOfPoint> contours = new List<MatOfPoint>();
+            Mat srcHierarchy = new Mat();
+            Imgproc.findContours(tresh1, contours, srcHierarchy, Imgproc.RETR_TREE, Imgproc.CHAIN_APPROX_NONE);
+            HPD.DebugWriteLn("findContours1");
+            List<MatOfPoint> xyz, hierarchy;
+               HPD.DebugWriteLn("hierarchy");
+            xyz = hierarchy = new List<MatOfPoint>(contours);
+               HPD.DebugWriteLn("List");
 
-            List<MatOfPoint> contours_dofh = new List<MatOfPoint> ();
-            Mat srcHierarchy_dofh = new Mat ();
-            Imgproc.findContours (tresh_dofh, contours_dofh, srcHierarchy_dofh, 2, 1);
-            List<MatOfPoint> xyz_dofh, hierarchy_dofh = new List<MatOfPoint> (contours_dofh);
-            MatOfPoint cnt = new MatOfPoint ();
-            foreach (MatOfPoint contour in contours) {
+            List<MatOfPoint> contours_dofh = new List<MatOfPoint>();
+               HPD.DebugWriteLn("contours_dofh");
+            Mat srcHierarchy_dofh = new Mat();
+               HPD.DebugWriteLn("srcHierarchy_dofh");
+            Imgproc.findContours(tresh_dofh, contours_dofh, srcHierarchy_dofh, 2, 1);
+            HPD.DebugWriteLn("findContours2");
+            List<MatOfPoint> xyz_dofh, hierarchy_dofh = new List<MatOfPoint>(contours_dofh);
+            MatOfPoint cnt = new MatOfPoint();
+            foreach (MatOfPoint contour in contours)
+            {
                 double _cnt = 0;
-                double currentContour = Imgproc.contourArea (contour);
-                if (currentContour > _cnt) {
+                double currentContour = Imgproc.contourArea(contour);
+                if (currentContour > _cnt)
+                {
                     cnt = contour;
                 }
             }
-            double area_of_contour = Imgproc.contourArea (cnt);
-            OpenCVForUnity.Rect rect = new OpenCVForUnity.Rect ();
+            HPD.DebugWriteLn("loop contour");
+            double area_of_contour = Imgproc.contourArea(cnt);
+            OpenCVForUnity.Rect rect = new OpenCVForUnity.Rect();
             double x, y, w, h;
 
-            rect = Imgproc.boundingRect (cnt);
+            rect = Imgproc.boundingRect(cnt);
+            HPD.DebugWriteLn("boundingRect");
             x = rect.x;
             y = rect.y;
             w = rect.width;
             h = rect.height;
-            Imgproc.rectangle (rgbaMat, new Point (x, y), new Point (x + w, y + h), new Scalar (0, 0, 255));
-            MatOfInt hull = new MatOfInt ();
-            Imgproc.convexHull (cnt, hull);
+            Imgproc.rectangle(rgbaMat, new Point(x, y), new Point(x + w, y + h), new Scalar(0, 0, 255));
+            MatOfInt hull = new MatOfInt();
+            Imgproc.convexHull(cnt, hull);
 
-            Imgproc.drawContours (rgbaMat, new List<MatOfPoint> () { cnt }, 0, new Scalar (0, 255, 0), 0);
+            Imgproc.drawContours(rgbaMat, new List<MatOfPoint>() { cnt }, 0, new Scalar(0, 255, 0), 0);
 
-            Imgproc.convexHull (cnt, hull, false);
-            MatOfInt4 defects = new MatOfInt4 ();
-            Imgproc.convexityDefects (cnt, hull, defects);
+            Imgproc.convexHull(cnt, hull, false);
+            MatOfInt4 defects = new MatOfInt4();
+            Imgproc.convexityDefects(cnt, hull, defects);
 
             int count_defects = 0;
-            Imgproc.drawContours (tresh1, contours, -1, new Scalar (0, 255, 0), 3);
+            Imgproc.drawContours(tresh1, contours, -1, new Scalar(0, 255, 0), 3);
 
-            List<Point> cntList = cnt.toList ();
-        
-            List<int> defectsList = defects.toList ();
-            for (int i = 0; i < defectsList.Count; i++) {
+            List<Point> cntList = cnt.toList();
+
+            List<int> defectsList = defects.toList();
+            for (int i = 0; i < defectsList.Count; i++)
+            {
                 int s, e, f, d;
                 s = e = f = d = defectsList[i];
-                Vector2 start = new Vector2 ((float) cntList[s].x, (float) cntList[s].y);
-                Vector2 end = new Vector2 ((float) cntList[e].x, (float) cntList[e].y);
-                Vector2 far = new Vector2 ((float) cntList[f].x, (float) cntList[f].y);
+                Vector2 start = new Vector2((float)cntList[s].x, (float)cntList[s].y);
+                Vector2 end = new Vector2((float)cntList[e].x, (float)cntList[e].y);
+                Vector2 far = new Vector2((float)cntList[f].x, (float)cntList[f].y);
 
-                float a = Mathf.Sqrt (Mathf.Pow ((start.x - start.x), 2) + Mathf.Pow ((start.y - start.y), 2));
-                float b = Mathf.Sqrt (Mathf.Pow ((far.x - start.x), 2) + Mathf.Pow ((far.y - start.y), 2));
-                float c = Mathf.Sqrt (Mathf.Pow ((end.x - far.x), 2) + Mathf.Pow ((end.y - far.y), 2));
+                float a = Mathf.Sqrt(Mathf.Pow((start.x - start.x), 2) + Mathf.Pow((start.y - start.y), 2));
+                float b = Mathf.Sqrt(Mathf.Pow((far.x - start.x), 2) + Mathf.Pow((far.y - start.y), 2));
+                float c = Mathf.Sqrt(Mathf.Pow((end.x - far.x), 2) + Mathf.Pow((end.y - far.y), 2));
 
-                float defect_angle = Mathf.Acos ((Mathf.Pow (b, 2) + Mathf.Pow (c, 2) - Mathf.Pow (a, 2)) / (2 * b * c)) * 60;
-                Imgproc.circle (rgbaMat, new Point ((double) far.x, (double) far.y), 4, new Scalar (0, 0, 255), -1);
+                float defect_angle = Mathf.Acos((Mathf.Pow(b, 2) + Mathf.Pow(c, 2) - Mathf.Pow(a, 2)) / (2 * b * c)) * 60;
+                Imgproc.circle(rgbaMat, new Point((double)far.x, (double)far.y), 4, new Scalar(0, 0, 255), -1);
 
                 if (defect_angle <= 90)
                     count_defects += 1;
 
-                Imgproc.line (rgbaMat, new Point ((double) start.x, (double) start.y), new Point ((double) end.x, (double) end.y), new Scalar (0, 255, 0), 3);
+                Imgproc.line(rgbaMat, new Point((double)start.x, (double)start.y), new Point((double)end.x, (double)end.y), new Scalar(0, 255, 0), 3);
 
             }
 
-            Moments moment = Imgproc.moments (cnt);
-            MatOfPoint2f cnt2f = new MatOfPoint2f (cnt);
-            double perimeter = Imgproc.arcLength (cnt2f, true);
-            double area = Imgproc.contourArea (cnt);
+            Moments moment = Imgproc.moments(cnt);
+            MatOfPoint2f cnt2f = new MatOfPoint2f(cnt);
+            double perimeter = Imgproc.arcLength(cnt2f, true);
+            double area = Imgproc.contourArea(cnt);
 
-            Point center = new Point ();
+            Point center = new Point();
             float[] rad = new float[1] { 0 };
-            Imgproc.minEnclosingCircle (cnt2f, center, rad);
-            int radius = (int) rad[0];
-            Imgproc.circle (rgbaMat, center, radius, new Scalar (255, 0, 0), 2);
+            Imgproc.minEnclosingCircle(cnt2f, center, rad);
+            int radius = (int)rad[0];
+            Imgproc.circle(rgbaMat, center, radius, new Scalar(255, 0, 0), 2);
             float area_of_circle = Mathf.PI * radius * radius;
 
-            MatOfInt hull_test = new MatOfInt ();
-            Imgproc.convexHull (cnt, hull_test);
-            double hull_area = Imgproc.contourArea (hull_test);
-            float solidity = (float) area / (float) hull_area;
+            MatOfInt hull_test = new MatOfInt();
+            Imgproc.convexHull(cnt, hull_test);
+            double hull_area = Imgproc.contourArea(hull_test);
+            float solidity = (float)area / (float)hull_area;
 
             double aspect_ratio = w / h;
             double rect_area = w * h;
             double extent = area / rect_area;
-            RotatedRect angle_t = Imgproc.fitEllipse (cnt2f);
+            RotatedRect angle_t = Imgproc.fitEllipse(cnt2f);
             double angle = angle_t.angle;
 
-            if (area_of_circle - area < 5000) {
+            if (area_of_circle - area < 5000)
+            {
                 letter = "A";
                 // numberOfFingersText.text = letter;
-            } else if (count_defects == 1) {
+            }
+            else if (count_defects == 1)
+            {
                 if (angle < 10)
                     letter = "V";
                 else if (angle > 40 && angle < 66)
@@ -654,28 +705,40 @@ namespace OpenCVModule {
                     letter = "L";
                 else
                     letter = "Y";
-            } else if (count_defects == 2) {
+            }
+            else if (count_defects == 2)
+            {
                 if (angle > 100)
                     letter = "F";
                 else
                     letter = "W";
-            } else if (count_defects == 4) {
+            }
+            else if (count_defects == 4)
+            {
                 letter = "A";
-            } else {
+            }
+            else
+            {
                 if (area > 12000)
                     letter = "B";
-                else {
-                    if (solidity < 0.85) {
-                        if (aspect_ratio < 1) {
+                else
+                {
+                    if (solidity < 0.85)
+                    {
+                        if (aspect_ratio < 1)
+                        {
                             if (angle < 20)
                                 letter = "D";
                             else if (angle < 180 && angle > 169)
                                 letter = "I";
                             else if (angle < 168)
                                 letter = "J";
-                        } else if (aspect_ratio > 1.01)
+                        }
+                        else if (aspect_ratio > 1.01)
                             letter = "Y";
-                    } else {
+                    }
+                    else
+                    {
                         if (angle > 30 && angle < 100)
                             letter = "H";
                         else if (angle > 120)
@@ -687,8 +750,8 @@ namespace OpenCVModule {
             }
 
             string status = "";
-            status += "\nRadius:" + (Mathf.PI * radius * radius).ToString () + " Area:" + area;
-            status += "\neffective circle area:" + (area_of_circle - area).ToString ();
+            status += "\nRadius:" + (Mathf.PI * radius * radius).ToString() + " Area:" + area;
+            status += "\neffective circle area:" + (area_of_circle - area).ToString();
             status += "\nsolidity:" + solidity;
             status += "\naspect ratio:" + aspect_ratio;
             status += "\ncovexity defects:" + count_defects;

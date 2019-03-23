@@ -32,5 +32,5 @@ MonoBehaviour:
     description: Put your hand on the center of the screen then tap
     img: {fileID: 0}
   - topic: Hand Detection
-    description: The game will read your hand as you form ASL lletters
+    description: The game will read your hand as you form ASL letters
     img: {fileID: 0}

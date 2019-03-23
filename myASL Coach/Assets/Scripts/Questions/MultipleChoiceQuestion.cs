@@ -51,6 +51,16 @@ public class MultipleChoiceQuestion : QuestionControl {
 		currentTime = timeAllotment + timeBumper;
 	}
 
+	public void RefreshAnimation(){
+		StartCoroutine(refreshAnimation());
+	}
+	IEnumerator refreshAnimation(){
+		animator.animateForced ("Default");
+		yield return new WaitForSeconds(.2f);
+		animator.animateForced (question.rightAnswer);
+		cam.changeCameraPosition (question.rightAnswer);
+	}
+
 	public void acceptAnswer (int i) {
 		if (currentCooldown > 0)
 			return;
@@ -70,7 +80,6 @@ public class MultipleChoiceQuestion : QuestionControl {
 		EndQuestion ();
 
 		resultImg.sprite = rightImg;
-		resultImg.color = new Color (0, 1, 0, 1);
 		resultAnimator.SetTrigger ("Result");
 	}
 	void WrongAnswer () {
@@ -82,7 +91,6 @@ public class MultipleChoiceQuestion : QuestionControl {
 		StartCoroutine (coolDown ());
 
 		resultImg.sprite = wrongImg;
-		resultImg.color = new Color (1, 0, 0, 1);
 		resultAnimator.SetTrigger ("Result");
 		wrongCounter++;
 

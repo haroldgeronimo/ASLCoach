@@ -1,0 +1,132 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93bd679cfd2bff04180137edd343502e, type: 3}
+  m_Name: Checkpoint 5
+  m_EditorClassIdentifier: 
+  levelNumber: 5
+  levelName: Checkpoint 5
+  levelDescription: Checkpoint
+  pointsEach: 5
+  questionsPrimitive:
+  - rightAnswerIndex: 0
+    choices: []
+    rightAnswer: {fileID: 0}
+    rightAnswerPool:
+    - {fileID: 11400000, guid: 4300dda5adc90f6409c55de0b51fc50f, type: 2}
+    - {fileID: 11400000, guid: cb7a2f06eada7ca48a5424f33a31ae40, type: 2}
+    - {fileID: 11400000, guid: 4cfe3f62e52255541b1840e1b4c25ec4, type: 2}
+    - {fileID: 11400000, guid: 32344184035e7a54fbfa7bd6854d3ee3, type: 2}
+    - {fileID: 11400000, guid: 42769ee700d2b934c954ac39e19f6a22, type: 2}
+    - {fileID: 11400000, guid: 6c97ee441bb61224eaa4151beaa40519, type: 2}
+    questionType: 0
+  - rightAnswerIndex: 0
+    choices: []
+    rightAnswer: {fileID: 0}
+    rightAnswerPool:
+    - {fileID: 11400000, guid: 4300dda5adc90f6409c55de0b51fc50f, type: 2}
+    - {fileID: 11400000, guid: cb7a2f06eada7ca48a5424f33a31ae40, type: 2}
+    - {fileID: 11400000, guid: 4cfe3f62e52255541b1840e1b4c25ec4, type: 2}
+    - {fileID: 11400000, guid: 32344184035e7a54fbfa7bd6854d3ee3, type: 2}
+    - {fileID: 11400000, guid: 42769ee700d2b934c954ac39e19f6a22, type: 2}
+    - {fileID: 11400000, guid: 6c97ee441bb61224eaa4151beaa40519, type: 2}
+    questionType: 0
+  - rightAnswerIndex: 0
+    choices: []
+    rightAnswer: {fileID: 0}
+    rightAnswerPool:
+    - {fileID: 11400000, guid: 4300dda5adc90f6409c55de0b51fc50f, type: 2}
+    - {fileID: 11400000, guid: cb7a2f06eada7ca48a5424f33a31ae40, type: 2}
+    - {fileID: 11400000, guid: 4cfe3f62e52255541b1840e1b4c25ec4, type: 2}
+    - {fileID: 11400000, guid: 32344184035e7a54fbfa7bd6854d3ee3, type: 2}
+    - {fileID: 11400000, guid: 42769ee700d2b934c954ac39e19f6a22, type: 2}
+    - {fileID: 11400000, guid: 6c97ee441bb61224eaa4151beaa40519, type: 2}
+    questionType: 1
+  - rightAnswerIndex: 0
+    choices: []
+    rightAnswer: {fileID: 0}
+    rightAnswerPool:
+    - {fileID: 11400000, guid: 4300dda5adc90f6409c55de0b51fc50f, type: 2}
+    - {fileID: 11400000, guid: cb7a2f06eada7ca48a5424f33a31ae40, type: 2}
+    - {fileID: 11400000, guid: 4cfe3f62e52255541b1840e1b4c25ec4, type: 2}
+    - {fileID: 11400000, guid: 32344184035e7a54fbfa7bd6854d3ee3, type: 2}
+    - {fileID: 11400000, guid: 42769ee700d2b934c954ac39e19f6a22, type: 2}
+    - {fileID: 11400000, guid: 6c97ee441bb61224eaa4151beaa40519, type: 2}
+    questionType: 0
+  - rightAnswerIndex: 0
+    choices: []
+    rightAnswer: {fileID: 0}
+    rightAnswerPool:
+    - {fileID: 11400000, guid: 4300dda5adc90f6409c55de0b51fc50f, type: 2}
+    - {fileID: 11400000, guid: cb7a2f06eada7ca48a5424f33a31ae40, type: 2}
+    - {fileID: 11400000, guid: 4cfe3f62e52255541b1840e1b4c25ec4, type: 2}
+    - {fileID: 11400000, guid: 32344184035e7a54fbfa7bd6854d3ee3, type: 2}
+    - {fileID: 11400000, guid: 42769ee700d2b934c954ac39e19f6a22, type: 2}
+    - {fileID: 11400000, guid: 6c97ee441bb61224eaa4151beaa40519, type: 2}
+    questionType: 1
+  - rightAnswerIndex: 0
+    choices: []
+    rightAnswer: {fileID: 0}
+    rightAnswerPool:
+    - {fileID: 11400000, guid: 4300dda5adc90f6409c55de0b51fc50f, type: 2}
+    - {fileID: 11400000, guid: cb7a2f06eada7ca48a5424f33a31ae40, type: 2}
+    - {fileID: 11400000, guid: 4cfe3f62e52255541b1840e1b4c25ec4, type: 2}
+    - {fileID: 11400000, guid: 32344184035e7a54fbfa7bd6854d3ee3, type: 2}
+    - {fileID: 11400000, guid: 42769ee700d2b934c954ac39e19f6a22, type: 2}
+    - {fileID: 11400000, guid: 6c97ee441bb61224eaa4151beaa40519, type: 2}
+    questionType: 0
+  - rightAnswerIndex: 0
+    choices: []
+    rightAnswer: {fileID: 0}
+    rightAnswerPool:
+    - {fileID: 11400000, guid: 4300dda5adc90f6409c55de0b51fc50f, type: 2}
+    - {fileID: 11400000, guid: cb7a2f06eada7ca48a5424f33a31ae40, type: 2}
+    - {fileID: 11400000, guid: 4cfe3f62e52255541b1840e1b4c25ec4, type: 2}
+    - {fileID: 11400000, guid: 32344184035e7a54fbfa7bd6854d3ee3, type: 2}
+    - {fileID: 11400000, guid: 42769ee700d2b934c954ac39e19f6a22, type: 2}
+    - {fileID: 11400000, guid: 6c97ee441bb61224eaa4151beaa40519, type: 2}
+    questionType: 0
+  - rightAnswerIndex: 0
+    choices: []
+    rightAnswer: {fileID: 0}
+    rightAnswerPool:
+    - {fileID: 11400000, guid: 4300dda5adc90f6409c55de0b51fc50f, type: 2}
+    - {fileID: 11400000, guid: cb7a2f06eada7ca48a5424f33a31ae40, type: 2}
+    - {fileID: 11400000, guid: 4cfe3f62e52255541b1840e1b4c25ec4, type: 2}
+    - {fileID: 11400000, guid: 32344184035e7a54fbfa7bd6854d3ee3, type: 2}
+    - {fileID: 11400000, guid: 42769ee700d2b934c954ac39e19f6a22, type: 2}
+    - {fileID: 11400000, guid: 6c97ee441bb61224eaa4151beaa40519, type: 2}
+    questionType: 1
+  - rightAnswerIndex: 0
+    choices: []
+    rightAnswer: {fileID: 0}
+    rightAnswerPool:
+    - {fileID: 11400000, guid: 4300dda5adc90f6409c55de0b51fc50f, type: 2}
+    - {fileID: 11400000, guid: cb7a2f06eada7ca48a5424f33a31ae40, type: 2}
+    - {fileID: 11400000, guid: 4cfe3f62e52255541b1840e1b4c25ec4, type: 2}
+    - {fileID: 11400000, guid: 32344184035e7a54fbfa7bd6854d3ee3, type: 2}
+    - {fileID: 11400000, guid: 42769ee700d2b934c954ac39e19f6a22, type: 2}
+    - {fileID: 11400000, guid: 6c97ee441bb61224eaa4151beaa40519, type: 2}
+    questionType: 0
+  - rightAnswerIndex: 0
+    choices: []
+    rightAnswer: {fileID: 0}
+    rightAnswerPool:
+    - {fileID: 11400000, guid: 4300dda5adc90f6409c55de0b51fc50f, type: 2}
+    - {fileID: 11400000, guid: cb7a2f06eada7ca48a5424f33a31ae40, type: 2}
+    - {fileID: 11400000, guid: 4cfe3f62e52255541b1840e1b4c25ec4, type: 2}
+    - {fileID: 11400000, guid: 32344184035e7a54fbfa7bd6854d3ee3, type: 2}
+    - {fileID: 11400000, guid: 42769ee700d2b934c954ac39e19f6a22, type: 2}
+    - {fileID: 11400000, guid: 6c97ee441bb61224eaa4151beaa40519, type: 2}
+    questionType: 1
+  questions: []
+  answerPool: {fileID: 11400000, guid: 9821968e2fe0f6d4e972ea2870076c69, type: 2}
+  introductoryAnswers: []
+  isCheckpoint: 1

@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour {
 			delegate { ShowQuestion (); });
 	}
 	void Start () {
-		ShowQuestion ();
+		//ShowQuestion ();
 	}
 	// Update is called once per frame
 	void Update () {

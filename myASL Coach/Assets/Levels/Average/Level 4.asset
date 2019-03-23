@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93bd679cfd2bff04180137edd343502e, type: 3}
+  m_Name: Level 4
+  m_EditorClassIdentifier: 
+  levelNumber: 4
+  levelName: Level 4
+  levelDescription: GOOD & BAD
+  pointsEach: 5
+  questionsPrimitive:
+  - rightAnswerIndex: 0
+    choices: []
+    rightAnswer: {fileID: 0}
+    rightAnswerPool:
+    - {fileID: 11400000, guid: fc840c3e645115c45939415acce71396, type: 2}
+    - {fileID: 11400000, guid: 5282cc781286e8d419c4153eddb1bb12, type: 2}
+    questionType: 0
+  - rightAnswerIndex: 0
+    choices: []
+    rightAnswer: {fileID: 0}
+    rightAnswerPool:
+    - {fileID: 11400000, guid: fc840c3e645115c45939415acce71396, type: 2}
+    - {fileID: 11400000, guid: 5282cc781286e8d419c4153eddb1bb12, type: 2}
+    questionType: 0
+  - rightAnswerIndex: 0
+    choices: []
+    rightAnswer: {fileID: 0}
+    rightAnswerPool:
+    - {fileID: 11400000, guid: fc840c3e645115c45939415acce71396, type: 2}
+    - {fileID: 11400000, guid: 5282cc781286e8d419c4153eddb1bb12, type: 2}
+    questionType: 1
+  - rightAnswerIndex: 0
+    choices: []
+    rightAnswer: {fileID: 0}
+    rightAnswerPool:
+    - {fileID: 11400000, guid: fc840c3e645115c45939415acce71396, type: 2}
+    - {fileID: 11400000, guid: 5282cc781286e8d419c4153eddb1bb12, type: 2}
+    questionType: 0
+  - rightAnswerIndex: 0
+    choices: []
+    rightAnswer: {fileID: 0}
+    rightAnswerPool:
+    - {fileID: 11400000, guid: fc840c3e645115c45939415acce71396, type: 2}
+    - {fileID: 11400000, guid: 5282cc781286e8d419c4153eddb1bb12, type: 2}
+    questionType: 1
+  questions: []
+  answerPool: {fileID: 0}
+  introductoryAnswers:
+  - {fileID: 11400000, guid: fc840c3e645115c45939415acce71396, type: 2}
+  - {fileID: 11400000, guid: 5282cc781286e8d419c4153eddb1bb12, type: 2}
+  isCheckpoint: 0

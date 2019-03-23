@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93bd679cfd2bff04180137edd343502e, type: 3}
+  m_Name: Level 7
+  m_EditorClassIdentifier: 
+  levelNumber: 7
+  levelName: Level 7
+  levelDescription: HOT & COLD
+  pointsEach: 5
+  questionsPrimitive:
+  - rightAnswerIndex: 0
+    choices: []
+    rightAnswer: {fileID: 0}
+    rightAnswerPool:
+    - {fileID: 11400000, guid: 0cf80141b54e50b4ea51742c89ab920c, type: 2}
+    - {fileID: 11400000, guid: 988b348d3ce86734fabe09d43b56ff02, type: 2}
+    questionType: 0
+  - rightAnswerIndex: 0
+    choices: []
+    rightAnswer: {fileID: 0}
+    rightAnswerPool:
+    - {fileID: 11400000, guid: 0cf80141b54e50b4ea51742c89ab920c, type: 2}
+    - {fileID: 11400000, guid: 988b348d3ce86734fabe09d43b56ff02, type: 2}
+    questionType: 0
+  - rightAnswerIndex: 0
+    choices: []
+    rightAnswer: {fileID: 0}
+    rightAnswerPool:
+    - {fileID: 11400000, guid: 0cf80141b54e50b4ea51742c89ab920c, type: 2}
+    - {fileID: 11400000, guid: 988b348d3ce86734fabe09d43b56ff02, type: 2}
+    questionType: 1
+  - rightAnswerIndex: 0
+    choices: []
+    rightAnswer: {fileID: 0}
+    rightAnswerPool:
+    - {fileID: 11400000, guid: 0cf80141b54e50b4ea51742c89ab920c, type: 2}
+    - {fileID: 11400000, guid: 988b348d3ce86734fabe09d43b56ff02, type: 2}
+    questionType: 0
+  - rightAnswerIndex: 0
+    choices: []
+    rightAnswer: {fileID: 0}
+    rightAnswerPool:
+    - {fileID: 11400000, guid: 0cf80141b54e50b4ea51742c89ab920c, type: 2}
+    - {fileID: 11400000, guid: 988b348d3ce86734fabe09d43b56ff02, type: 2}
+    questionType: 1
+  questions: []
+  answerPool: {fileID: 11400000, guid: 9821968e2fe0f6d4e972ea2870076c69, type: 2}
+  introductoryAnswers:
+  - {fileID: 11400000, guid: 0cf80141b54e50b4ea51742c89ab920c, type: 2}
+  - {fileID: 11400000, guid: 988b348d3ce86734fabe09d43b56ff02, type: 2}
+  isCheckpoint: 0

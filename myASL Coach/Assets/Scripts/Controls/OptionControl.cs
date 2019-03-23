@@ -47,4 +47,10 @@ public class OptionControl : MonoBehaviour {
 		);
 
 	}
+
+	public void ShowCredits(){
+			MsgBox.ShowMsgOkay (
+			"Created and Developed by our team. \n \nThis game is for learning the American Sign Language."
+		);
+	}
 }
