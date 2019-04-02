@@ -5050,7 +5050,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &947133507
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6253,7 +6253,7 @@ MonoBehaviour:
   - {fileID: 528444026}
   - {fileID: 947133506}
   isPlaying: 1
-  timeAllotment: 10
+  timeAllotment: 8
   timeBumper: 3
   cooldownTime: 3
   failTreshold: 3

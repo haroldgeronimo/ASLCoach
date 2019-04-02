@@ -14,7 +14,7 @@ MonoBehaviour:
   tutorialName: Easy
   sheets:
   - topic: Multiple Choice
-    description: In the easy level, you are required to answer mulltiple choice questions
+    description: In the easy level, you are required to answer multiple choice questions
     img: {fileID: 21300000, guid: 7f1f56a631ff35641acd0653222b3a7c, type: 3}
   - topic: Multiple Choice
     description: This question comprises of letters from the alphabet.
