@@ -23,8 +23,8 @@ public class SaveManager : MonoBehaviour {
 				string jsonString = streamReader.ReadToEnd ();
 				return JsonUtility.FromJson<PlayerData> (jsonString);
 			}
-		} catch (System.Exception) {
-
+		} catch (System.Exception ex) {
+			Debug.Log (ex);
 			return null;
 		}
 

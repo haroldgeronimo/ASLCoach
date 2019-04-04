@@ -94,6 +94,8 @@ public class LevelManager : MonoBehaviour {
 		levelComplete.SetActive (true);
 		emojiImg.sprite = thumbsUp;
 		levelCompleteDescription.text = "You have passed this level";
+		
+        AudioManager.instance.SfxManager.PlaySfx(SfxType.success);
 
 	}
 	public void NextLevel () {
@@ -110,6 +112,7 @@ public class LevelManager : MonoBehaviour {
 			levelComplete.SetActive (true);
 			levelCompleteDescription.text = "You have finished " + levelPool.difficultyType.ToString () + " stage.";
 
+        AudioManager.instance.SfxManager.PlaySfx(SfxType.success);
 		} else {
 			Debug.Log ("End of Level Pool");
 			sceneControl.ChangeScene (0);
@@ -119,6 +122,7 @@ public class LevelManager : MonoBehaviour {
 	public void RestartLevel(){
 		failedPanel.SetActive(false);
 		GetComponent<MultipleChoiceQuestion>().wrongCounter = 0;
+	
 		PrepareLevel (levelIndex);
 	}
 	public void AddToScore (int scoreAdded) {

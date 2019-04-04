@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour {
 		playerManager = GetComponent<PlayerManager> ();
 		saveManager = GetComponent<SaveManager> ();
 		DM = GetComponent<DialogueManager> ();
-		LoadGame ();
+
 	}
 	void ShowMessage () {
 		MsgBox.ShowMsgOkay ("Subscribe to PewDiePie!");
@@ -25,6 +25,8 @@ public class GameManager : MonoBehaviour {
 			delegate { ShowQuestion (); });
 	}
 	void Start () {
+		
+		LoadGame ();
 		//ShowQuestion ();
 	}
 	// Update is called once per frame
@@ -52,7 +54,8 @@ public class GameManager : MonoBehaviour {
 	}
 	void LoadGame () {
 		PlayerData pd = saveManager.LoadGame (saveManager.dataPath);
-		if (pd == null) return;
+		if (pd == null) { Debug.Log ("NO DATA FOUND"); return; }
+		Debug.Log ("LOADING...");
 		playerManager.points = pd.points;
 		currentDifficulty = pd.currentDifficulty;
 		currentLevel = pd.currentLevel;

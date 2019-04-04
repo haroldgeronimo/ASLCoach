@@ -25,6 +25,7 @@ public class DialogueManager : MonoBehaviour {
 			DialogueType.YesNo,
 			new DialogueResultAction (DialogueResult.Yes, yesAction),
 			new DialogueResultAction (DialogueResult.No, noAction));
+			
 	}
 
 	/// <summary>
@@ -44,6 +45,7 @@ public class DialogueManager : MonoBehaviour {
 			new DialogueResultAction (DialogueResult.Yes, yesAction),
 			new DialogueResultAction (DialogueResult.No, noAction),
 			new DialogueResultAction (DialogueResult.Cancel, cancelAction));
+			
 	}
 	public void ShowMsgOkay (
 		string message,
@@ -51,6 +53,7 @@ public class DialogueManager : MonoBehaviour {
 		initializeMsgBox (message,
 			DialogueType.Okay,
 			new DialogueResultAction (DialogueResult.Okay, okayAction));
+			
 	}
 	#endregion
 	void initializeMsgBox (string message, DialogueType type, params DialogueResultAction[] resultAction) {
@@ -60,6 +63,8 @@ public class DialogueManager : MonoBehaviour {
 		dboxUI.Initialize (message, type);
 
 		dialogueBoxes.Add (new DialogueBox (message, initMsgBox, resultAction));
+		
+        AudioManager.instance.SfxManager.PlaySfx(SfxType.alert);
 	}
 	void removeMessageBox (GameObject go) {
 		if (dialogueBoxes.Count > 0)
@@ -73,6 +78,7 @@ public class DialogueManager : MonoBehaviour {
 	}
 	public void AcceptResponse (DialogueResult result, GameObject sender) {
 		Debug.Log ("You clicked " + result.ToString ());
+		
 		DialogueBox dbox = searchDialogueBox (sender);
 		if (dbox == null) { Debug.LogError ("Query was null"); return; }
 		UnityAction action = dbox.GetResultAction (result);
@@ -83,6 +89,7 @@ public class DialogueManager : MonoBehaviour {
 			//TODO Add default Action
 			removeMessageBox (sender);
 		}
+		AudioManager.instance.SfxManager.PlaySfx(SfxType.click);
 	}
 
 	DialogueBox searchDialogueBox (GameObject query) {

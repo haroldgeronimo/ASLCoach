@@ -47,14 +47,19 @@ public class DetectionQuestion : QuestionControl {
 
 		if (c == answerChars[currentIndex]) {
 			//right answer
-			userCurrentAnswerTxt.text =  c.ToString ();
+			userCurrentAnswerTxt.text = c.ToString ();
 			userAnswerTxt.text = userAnswerTxt.text + c.ToString ();
 			currentIndex++;
+
+			AudioManager.instance.SfxManager.PlaySfx (SfxType.alert);
 		}
 
 		if (currentIndex > answerChars.Length - 1) {
+
 			questionManager.PlayerCorrect (answerChars.Length);
 			EndQuestion ();
+
+			AudioManager.instance.SfxManager.PlaySfx (SfxType.correct);
 		}
 	}
 

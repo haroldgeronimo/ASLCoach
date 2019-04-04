@@ -110,6 +110,12 @@ public SfxManager SfxManager;
     {
         sfx2DSource.PlayOneShot(library.GetClipFromName(soundName), sfxVolumePercent * masterVolumePercent);
     }
+    
+    public void PlaySound2D(AudioClip clip)
+    {   
+        if(clip == null)return;
+        sfx2DSource.PlayOneShot(clip, sfxVolumePercent * masterVolumePercent);
+    }
 
 
     IEnumerator AnimateMusicCrossfade(float duration)

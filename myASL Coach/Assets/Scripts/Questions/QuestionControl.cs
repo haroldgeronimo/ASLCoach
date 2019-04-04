@@ -31,6 +31,12 @@ public class QuestionControl : MonoBehaviour {
 		StartCoroutine (NextLevelBuffer ());
 	}
 
+	public void ResetUI(){
+		StopAllCoroutines ();
+		isPlaying = false;
+		DisableUI ();
+	}
+
 	void EnableUI () {
 		for (int i = 0; i < UiQuestion.Length; i++) {
 			UiQuestion[i].SetActive (true);
@@ -43,7 +49,7 @@ public class QuestionControl : MonoBehaviour {
 	}
 
 	IEnumerator NextLevelBuffer () {
-		yield return new WaitForSeconds (2);
+		yield return new WaitForSeconds (2.2f);
 		DisableUI ();
 		Debug.Log ("NEXT QUESTION");
 		questionManager.NextQuestion ();

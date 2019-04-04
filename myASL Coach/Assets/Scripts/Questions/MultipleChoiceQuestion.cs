@@ -51,12 +51,12 @@ public class MultipleChoiceQuestion : QuestionControl {
 		currentTime = timeAllotment + timeBumper;
 	}
 
-	public void RefreshAnimation(){
-		StartCoroutine(refreshAnimation());
+	public void RefreshAnimation () {
+		StartCoroutine (refreshAnimation ());
 	}
-	IEnumerator refreshAnimation(){
+	IEnumerator refreshAnimation () {
 		animator.animateForced ("Default");
-		yield return new WaitForSeconds(.2f);
+		yield return new WaitForSeconds (.2f);
 		animator.animateForced (question.rightAnswer);
 		cam.changeCameraPosition (question.rightAnswer);
 	}
@@ -81,6 +81,8 @@ public class MultipleChoiceQuestion : QuestionControl {
 
 		resultImg.sprite = rightImg;
 		resultAnimator.SetTrigger ("Result");
+
+		AudioManager.instance.SfxManager.PlaySfx (SfxType.correct);
 	}
 	void WrongAnswer () {
 
@@ -94,15 +96,21 @@ public class MultipleChoiceQuestion : QuestionControl {
 		resultAnimator.SetTrigger ("Result");
 		wrongCounter++;
 
-	}
+		AudioManager.instance.SfxManager.PlaySfx (SfxType.wrong);
 
+	}
+	bool isTickPlayed = false;
 	void updateTimes () {
 		currentTime -= Time.deltaTime;
-
+		if (currentTime <= 4 && !isTickPlayed) {
+			isTickPlayed = true;
+			AudioManager.instance.SfxManager.PlaySfx ("5Sec");
+		}
 		if (currentTime < 0) {
 			if (questionManager.currentLevel.isCheckpoint)
 				questionManager.PlayerWrong ();
 
+			AudioManager.instance.SfxManager.PlaySfx (SfxType.wrong);
 			wrongCounter++;
 			if (wrongCounter >= failTreshold) {
 				failPanel.SetActive (true);
@@ -111,9 +119,12 @@ public class MultipleChoiceQuestion : QuestionControl {
 					difficultyTransforms[0].gameObject.SetActive (false);
 				}
 				isPlaying = false;
+				ResetUI();
+				AudioManager.instance.SfxManager.PlaySfx (SfxType.failed);
 				return;
 			}
 			EndQuestion ();
+			isTickPlayed = false;
 		}
 
 		timePercent = currentTime / (timeAllotment + timeBumper);
