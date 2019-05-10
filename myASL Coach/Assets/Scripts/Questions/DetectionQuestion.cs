@@ -30,6 +30,7 @@ public class DetectionQuestion : QuestionControl {
 			Debug.LogError ("Answer not set!");
 		}
 
+		Debug.LogWarning("Question:" + q.rightAnswer);
 		rightAnswerTxt.text = q.rightAnswer.text;
 		userCurrentAnswerTxt.text = string.Empty;
 		userAnswerTxt.text = string.Empty;

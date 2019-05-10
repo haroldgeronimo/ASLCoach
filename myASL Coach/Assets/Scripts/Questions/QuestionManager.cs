@@ -11,6 +11,7 @@ public class QuestionManager : MonoBehaviour {
 	//UI
 	public TextMeshProUGUI scoreNotif;
 	public Animator scoreAnimator;
+	[HideInInspector()]
 	int currentQuestion = -1;
 	void Awake () {
 		levelManager = GetComponent<LevelManager> ();
@@ -26,6 +27,10 @@ public class QuestionManager : MonoBehaviour {
 		
 		Debug.Log("NEXT QUESTION");
 		NextQuestion ();
+	}
+
+	public void ResetQuestions(){
+		currentQuestion = -1;
 	}
 
 	public void PlayerCorrect (float pointsMultiplier) {

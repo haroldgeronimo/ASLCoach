@@ -51,11 +51,13 @@ public class LevelManager : MonoBehaviour {
 	// Update is called once per frame
 
 	public void PrepareLevel (int lvlIndex) {
-		if(levelPool == null){
-			constructPanel.SetActive(true);return;
+		if (levelPool == null) {
+			constructPanel.SetActive (true);
+			return;
 		}
-		if(levelPool.levels.Length == 0){
-			constructPanel.SetActive(true);return;
+		if (levelPool.levels.Length == 0) {
+			constructPanel.SetActive (true);
+			return;
 
 		}
 		//TODO check here if level is valid
@@ -78,24 +80,23 @@ public class LevelManager : MonoBehaviour {
 		levelPanel.SetActive (true);
 		if (currentLevel.introductoryAnswers.Length > 0) {
 			levelPanel.SetActive (false);
-			
+
 			lrnManager.StartLearn (currentLevel.introductoryAnswers);
 			return;
 		}
-		
 
 		questionManager.StartQuestions (currentLevel);
 
 	}
 	public void EndLevel () {
 		PlayerManager.singleton.AddPoints (currentScore);
-		if(currentLevel.isCheckpoint)
-		PlayerManager.singleton.gameManager.SaveProgress(levelIndex,levelPool.isLast(levelIndex));
+		if (currentLevel.isCheckpoint)
+			PlayerManager.singleton.gameManager.SaveProgress (levelIndex, levelPool.isLast (levelIndex));
 		levelComplete.SetActive (true);
 		emojiImg.sprite = thumbsUp;
 		levelCompleteDescription.text = "You have passed this level";
-		
-        AudioManager.instance.SfxManager.PlaySfx(SfxType.success);
+
+		AudioManager.instance.SfxManager.PlaySfx (SfxType.success);
 
 	}
 	public void NextLevel () {
@@ -112,17 +113,18 @@ public class LevelManager : MonoBehaviour {
 			levelComplete.SetActive (true);
 			levelCompleteDescription.text = "You have finished " + levelPool.difficultyType.ToString () + " stage.";
 
-        AudioManager.instance.SfxManager.PlaySfx(SfxType.success);
+			AudioManager.instance.SfxManager.PlaySfx (SfxType.success);
 		} else {
 			Debug.Log ("End of Level Pool");
 			sceneControl.ChangeScene (0);
 		}
 	}
 
-	public void RestartLevel(){
-		failedPanel.SetActive(false);
-		GetComponent<MultipleChoiceQuestion>().wrongCounter = 0;
-	
+	public void RestartLevel () {
+		//Debug.Log("Restarting Level ... ");
+		failedPanel.SetActive (false);
+		GetComponent<MultipleChoiceQuestion> ().wrongCounter = 0;
+		questionManager.ResetQuestions();
 		PrepareLevel (levelIndex);
 	}
 	public void AddToScore (int scoreAdded) {
